@@ -4,13 +4,13 @@
     editorDirectory="/edu.kit.sfm.editor/src" modelPluginID="edu.kit.sfm" modelName="ServiceFeatureModel"
     editPluginClass="edu.kit.sfm.servicefeaturemodel.provider.ServiceFeatureModelEditPlugin"
     editorPluginClass="edu.kit.sfm.servicefeaturemodel.presentation.ServiceFeatureModelEditorPlugin"
-    suppressEMFTypes="true" testSuiteClass="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.tests.ServiceFeatureModelAllTests"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    suppressEMFTypes="true" testSuiteClass="edu.kit.sfm.servicefeaturemodel.tests.ServiceFeatureModelAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     providerRootExtendsClass="" editPluginID="edu.kit.sfm.edit" editorPluginID="edu.kit.sfm.editor"
     interfaceNamePattern="">
   <foreignModel>ServiceFeatureModel.ecore</foreignModel>
-  <genPackages prefix="Servicefeaturemodel" basePackage="edu.kit.cockpit.sfmdesigner"
-      disposableProviderFactory="true" fileExtensions="sfm" ecorePackage="ServiceFeatureModel.ecore#/">
+  <genPackages prefix="Servicefeaturemodel" basePackage="edu.kit.sfm" disposableProviderFactory="true"
+      fileExtensions="sfm" ecorePackage="ServiceFeatureModel.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ServiceFeatureModel.ecore#//AttributeDomain">
       <genEnumLiterals ecoreEnumLiteral="ServiceFeatureModel.ecore#//AttributeDomain/Continuous"/>
       <genEnumLiterals ecoreEnumLiteral="ServiceFeatureModel.ecore#//AttributeDomain/Boolean"/>
