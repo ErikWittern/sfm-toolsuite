@@ -49,16 +49,17 @@ public class ORItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
+	 *  'Min/Max features' field deactivated because automatic analysis handles OR as: choose one or more features.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMinFeaturesToChoosePropertyDescriptor(object);
-			addMaxFeaturesToChoosePropertyDescriptor(object);
+			//addMinFeaturesToChoosePropertyDescriptor(object);
+			//addMaxFeaturesToChoosePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,12 +123,11 @@ public class ORItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		OR or = (OR)object;
-		return getString("_UI_OR_type") + " " + or.getMinFeaturesToChoose();
+		return getString("_UI_OR_type") + " - choose at least 1 (but potentially more)";
 	}
 
 	/**

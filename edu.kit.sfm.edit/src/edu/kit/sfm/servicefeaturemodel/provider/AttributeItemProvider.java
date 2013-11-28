@@ -52,8 +52,9 @@ public class AttributeItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * 	Property descriptor for ID not added because ID should not be changed by user.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -62,7 +63,7 @@ public class AttributeItemProvider
 
 			addInstantiationValuePropertyDescriptor(object);
 			addAttributeTypePropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
+			//addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -148,22 +149,29 @@ public class AttributeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Attribute)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Attribute_type") :
-			getString("_UI_Attribute_type") + " " + label;
+		String returnString = "<no type selected> : <no value> (" + getString("_UI_Attribute_type") + ")";
+		String value = ((Attribute)object).getInstantiationValue();
+		if (!(((Attribute)object).getAttributeType() == null || ((Attribute)object).getAttributeType().getName().length() == 0) && (value == null || value.length() == 0)){
+			return ((Attribute)object).getAttributeType().getName() + " : <no value> (" + getString("_UI_Attribute_type") + ")";
+		} else if ((((Attribute)object).getAttributeType() == null || ((Attribute)object).getAttributeType().getName().length() == 0) && !(value == null || value.length() == 0)){
+			return  "<no type selected> : " + value + " (" + getString("_UI_Attribute_type") + ")";
+		} else if (!(((Attribute)object).getAttributeType() == null || ((Attribute)object).getAttributeType().getName().length() == 0) && !(value == null || value.length() == 0)){
+			return ((Attribute)object).getAttributeType().getName() + " : " + value + " (" + getString("_UI_Attribute_type") + ")";
+		}
+		return returnString;
 	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
+	 *		Notification added that reacts to changed ofAttributeType relationship
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -171,7 +179,10 @@ public class AttributeItemProvider
 
 		switch (notification.getFeatureID(Attribute.class)) {
 			case ServicefeaturemodelPackage.ATTRIBUTE__INSTANTIATION_VALUE:
-			case ServicefeaturemodelPackage.ATTRIBUTE__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			// New notification in case that "ofAttributeType" is changed:
+			case ServicefeaturemodelPackage.ATTRIBUTE__ATTRIBUTE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -3,6 +3,7 @@
 package edu.kit.sfm.servicefeaturemodel.provider;
 
 
+import edu.kit.sfm.servicefeaturemodel.Excludes;
 import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
 
 import java.util.Collection;
@@ -10,9 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,6 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.sfm.servicefeaturemodel.Excludes} object.
@@ -99,23 +99,36 @@ public class ExcludesItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Excludes_type");
+		String returnString = getString("_UI_Excludes_type") + ": <undefined>";
+		if(!(((Excludes)object).getServiceFeature() == null)){
+			returnString = getString("_UI_Excludes_type") + ": " + ((Excludes)object).getServiceFeature().getName();
+		}
+		return returnString;
 	}
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
+	 * 		Notification added that reacts to changed relationship to another feature
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		
+		//New Notification for changed excludes_service_feature relationship:
+		switch (notification.getFeatureID(Excludes.class)) {
+		case ServicefeaturemodelPackage.EXCLUDES__SERVICE_FEATURE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
+		
 		super.notifyChanged(notification);
 	}
 

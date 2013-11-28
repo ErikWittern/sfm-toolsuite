@@ -3,18 +3,14 @@
 package edu.kit.sfm.servicefeaturemodel.provider;
 
 
-import edu.kit.sfm.servicefeaturemodel.Preference;
-import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,6 +21,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import edu.kit.sfm.servicefeaturemodel.Preference;
+import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.sfm.servicefeaturemodel.Preference} object.
@@ -172,15 +171,36 @@ public class PreferenceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((Preference)object).getCreationDate();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Preference_type") :
-			getString("_UI_Preference_type") + " " + label;
+		String returnString = "Preference ";		
+		
+		// Stakeholder group
+		if(((Preference)object).getStakeholderGroup() != null && ((Preference)object).getStakeholderGroup() != ""){
+			returnString += "(" + ((Preference)object).getStakeholderGroup() + ", ";
+		} else {
+			returnString += "(<no stakeholder group provided>, ";
+		}
+		// Creation date
+		DateFormat df = new SimpleDateFormat("E, dd MMM yyyy, HH:mm:ss");
+		if(((Preference)object).getCreationDate() != null 
+				&& ((Preference)object).getCreationDate().toString() != null 
+				&& ((Preference)object).getCreationDate().toString() != "")
+		{
+			returnString += "created: " + df.format(((Preference)object).getCreationDate()) + "): ";
+		} else {
+			returnString += "created: <no value>): ";
+		}
+		
+		// Preference value
+		if(String.valueOf(((Preference)object).getValue()) != null && String.valueOf(((Preference)object).getValue()) != ""){
+			returnString += String.valueOf(((Preference)object).getValue());
+		} else {
+			returnString += " <no value>";
+		}
+		return returnString;
 	}
 
 	/**

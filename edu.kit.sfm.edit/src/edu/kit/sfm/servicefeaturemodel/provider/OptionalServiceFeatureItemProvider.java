@@ -99,14 +99,15 @@ public class OptionalServiceFeatureItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((OptionalServiceFeature)object).getName();
+		String featureType = ((OptionalServiceFeature)object).getFeatureType().getLiteral();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OptionalServiceFeature_type") :
-			getString("_UI_OptionalServiceFeature_type") + " " + label;
+			"<unnamed> (" + featureType + ")" :
+			label + " (" + featureType + ")";
 	}
 
 	/**

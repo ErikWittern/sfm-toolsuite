@@ -52,16 +52,16 @@ public class AttributeTypeItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * 	'domain' property descriptor commented out. Domain is now automatically chosen based on the aggregation rule.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
 			addNamePropertyDescriptor(object);
-			addDomainPropertyDescriptor(object);
+			//addDomainPropertyDescriptor(object);
 			addAggregationRulePropertyDescriptor(object);
 			addScaleOrderPropertyDescriptor(object);
 			addToBeEvaluatedPropertyDescriptor(object);
@@ -263,14 +263,14 @@ public class AttributeTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((AttributeType)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AttributeType_type") :
-			getString("_UI_AttributeType_type") + " " + label;
+			"<unnamed>" :
+			label;
 	}
 
 	/**

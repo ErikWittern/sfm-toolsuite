@@ -55,8 +55,9 @@ public class ServiceFeatureDiagramItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
+	 *  Property descriptor for ID not added because ID should not be changed by user.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -65,7 +66,7 @@ public class ServiceFeatureDiagramItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
+			//addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -181,14 +182,14 @@ public class ServiceFeatureDiagramItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((ServiceFeatureDiagram)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ServiceFeatureDiagram_type") :
-			getString("_UI_ServiceFeatureDiagram_type") + " " + label;
+			getString("_UI_ServiceFeatureDiagram_type") + ": " + label;
 	}
 
 	/**

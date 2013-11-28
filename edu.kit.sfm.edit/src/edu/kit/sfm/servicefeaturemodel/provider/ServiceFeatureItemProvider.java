@@ -56,7 +56,7 @@ public class ServiceFeatureItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -65,11 +65,11 @@ public class ServiceFeatureItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addMinAmountPropertyDescriptor(object);
-			addMaxAmountPropertyDescriptor(object);
-			addMapsToGSMElementPropertyDescriptor(object);
-			addAssociatedGSMElementPropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
+			//addMinAmountPropertyDescriptor(object);
+			//addMaxAmountPropertyDescriptor(object);
+			//addMapsToGSMElementPropertyDescriptor(object);
+			//addAssociatedGSMElementPropertyDescriptor(object);
+			//addIdPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;

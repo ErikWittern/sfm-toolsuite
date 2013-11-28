@@ -95,8 +95,9 @@ public class ServiceItemProvider
 	/**
 	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
+	 *  "is settable" set to false in order to avoid user from changing the model's id.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -106,7 +107,7 @@ public class ServiceItemProvider
 				 getString("_UI_Service_id_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Service_id_feature", "_UI_Service_type"),
 				 ServicefeaturemodelPackage.Literals.SERVICE__ID,
-				 true,
+				 false, // used to be true
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -183,14 +184,14 @@ public class ServiceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		String label = ((Service)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Service_type") :
-			getString("_UI_Service_type") + " " + label;
+			getString("_UI_Service_type") + ": " + label;
 	}
 
 	/**
