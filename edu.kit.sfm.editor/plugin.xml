@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ServiceFeatureModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.presentation.ServicefeaturemodelModelWizardID"
+            name="%_UI_ServicefeaturemodelModelWizard_label"
+            class="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.presentation.ServicefeaturemodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ServicefeaturemodelModelFile.gif">
+         <description>%_UI_ServicefeaturemodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ServiceFeatureModel -->
+      <editor
+            id="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.presentation.ServicefeaturemodelEditorID"
+            name="%_UI_ServicefeaturemodelEditor_label"
+            icon="icons/full/obj16/ServicefeaturemodelModelFile.gif"
+            extensions="sfm"
+            class="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.presentation.ServicefeaturemodelEditor"
+            contributorClass="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.presentation.ServicefeaturemodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

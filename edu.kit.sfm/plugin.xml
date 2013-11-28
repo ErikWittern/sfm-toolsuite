@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ServiceFeatureModel -->
+      <package
+            uri="http://servicefeaturemodel/1.0"
+            class="edu.kit.cockpit.sfmdesigner.servicefeaturemodel.ServicefeaturemodelPackage"/>
+   </extension>
+
+</plugin>
