@@ -12,24 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
-
-import org.eclipse.emf.common.CommonPlugin;
-
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.xmi.XMLResource;
-
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
+import java.util.UUID;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -37,52 +20,50 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
-
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.ISetSelectionTarget;
-
-import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelFactory;
-import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
-import edu.kit.sfm.servicefeaturemodel.provider.ServiceFeatureModelEditPlugin;
-
-
-import org.eclipse.core.runtime.Path;
-
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.ISetSelectionTarget;
+
+import edu.kit.sfm.servicefeaturemodel.AttributeTypes;
+import edu.kit.sfm.servicefeaturemodel.Configurations;
+import edu.kit.sfm.servicefeaturemodel.Service;
+import edu.kit.sfm.servicefeaturemodel.ServiceFeatureDiagram;
+import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelFactory;
+import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
+import edu.kit.sfm.servicefeaturemodel.provider.ServiceFeatureModelEditPlugin;
 
 
 /**
@@ -216,8 +197,9 @@ public class ServicefeaturemodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
+	 * Add initial nodes when creating SFM
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -251,6 +233,28 @@ public class ServicefeaturemodelModelWizard extends Wizard implements INewWizard
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
+							
+							/** CUSTOM **/
+							// Get Service object to add further nodes:
+							Service service = (Service) resource.getContents().get(0);
+							
+							// Give new UUID:
+							UUID uuid = UUID.randomUUID();
+							String randomUUIDString = uuid.toString();
+							service.setId(randomUUIDString);
+							
+							// Add the AttributeTypes node under the Service node:
+							AttributeTypes attTypes = servicefeaturemodelFactory.createAttributeTypes();
+							service.setAttributeTypes(attTypes);
+						
+							// Add the ServiceFeatureDiagram node under the Service node:
+							ServiceFeatureDiagram sfd = servicefeaturemodelFactory.createServiceFeatureDiagram();
+							service.setServiceFeatureDiagram(sfd);
+														
+							// Add the PossibleConfigurations node under the Service node:
+							Configurations possConfs = servicefeaturemodelFactory.createConfigurations();
+							service.setConfigurations(possConfs);
+							/** END: CUSTOM **/
 
 							// Save the contents of the resource to the file system.
 							//
