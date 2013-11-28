@@ -268,12 +268,24 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Set 'customAttributeTypePriority' to '3' is 'aggregation rule' is 'At Least Once'.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setAggregationRule(AggregationRules newAggregationRule) {
 		AggregationRules oldAggregationRule = aggregationRule;
 		aggregationRule = newAggregationRule == null ? AGGREGATION_RULE_EDEFAULT : newAggregationRule;
+		
+		// Set domain depending on aggregation rule:
+		if(aggregationRule == AggregationRules.AT_LEAST_ONCE){
+			setDomain(AttributeDomain.BOOLEAN);
+			setScaleOrder(ScaleOrders.EXISTENCE_IS_BETTER);
+			setCustomAttributeTypePriority(3);
+		} else {
+			setDomain(AttributeDomain.CONTINUOUS);
+			setCustomAttributeTypePriority(0);
+		}
+		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.ATTRIBUTE_TYPE__AGGREGATION_RULE, oldAggregationRule, aggregationRule));
 	}

@@ -8,18 +8,15 @@ import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -112,11 +109,14 @@ public class ServiceFeatureDiagramImpl extends EObjectImpl implements ServiceFea
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * 	Set UUID as id (dynamically, thus every time the constructor is called
+	 *  (use for calculations, not for identification because ids change).
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ServiceFeatureDiagramImpl() {
 		super();
+		id = UUID.randomUUID().toString();
 	}
 
 	/**

@@ -2,38 +2,30 @@
  */
 package edu.kit.sfm.servicefeaturemodel.impl;
 
-import edu.kit.sfm.servicefeaturemodel.Attribute;
-import edu.kit.sfm.servicefeaturemodel.Configuration;
-import edu.kit.sfm.servicefeaturemodel.Preference;
-import edu.kit.sfm.servicefeaturemodel.ServiceFeature;
-import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
-
-import edu.kit.sfm.servicefeaturemodel.util.ServicefeaturemodelValidator;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import edu.kit.sfm.servicefeaturemodel.Attribute;
+import edu.kit.sfm.servicefeaturemodel.Configuration;
+import edu.kit.sfm.servicefeaturemodel.Preference;
+import edu.kit.sfm.servicefeaturemodel.ServiceFeature;
+import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
+import edu.kit.sfm.servicefeaturemodel.util.ServicefeaturemodelValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -264,27 +256,32 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Check for existence of ID
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validate(DiagnosticChain diagnostic, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostic != null) {
+		boolean valid = true;
+		if (diagnostic != null) {
+			if (getName() == null || getName().length() == 0 ){
+				valid = false;
 				diagnostic.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 ServicefeaturemodelValidator.DIAGNOSTIC_SOURCE,
-						 ServicefeaturemodelValidator.CONFIGURATION__VALIDATE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "validate", EObjectValidator.getObjectLabel(this, context) }),
+						 ServicefeaturemodelValidator.CONFIGURATION__VALIDATE, "Name of Configuration (ID: " + getId()+") is missing",
 						 new Object [] { this }));
-			}
-			return false;
+				}else if(getId() == null || getId().length() == 0){
+					valid = false;
+					diagnostic.add
+						(new BasicDiagnostic
+							(Diagnostic.ERROR,
+							 ServicefeaturemodelValidator.DIAGNOSTIC_SOURCE,
+							 ServicefeaturemodelValidator.CONFIGURATION__VALIDATE, "ID of Configuration (Name: " + getName()+") is missing",
+							 new Object [] { this }));	
+				}
 		}
-		return true;
+		return valid;
 	}
 
 	/**

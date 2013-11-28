@@ -2,15 +2,15 @@
  */
 package edu.kit.sfm.servicefeaturemodel.impl;
 
+import java.util.UUID;
+
 import edu.kit.sfm.servicefeaturemodel.Attribute;
 import edu.kit.sfm.servicefeaturemodel.AttributeType;
 import edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -82,11 +82,14 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * 	Set UUID as id (dynamically, thus every time the constructor is called
+	 *  (use for calculations, not for identification because ids change).
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected AttributeImpl() {
 		super();
+		id = UUID.randomUUID().toString();
 	}
 
 	/**
