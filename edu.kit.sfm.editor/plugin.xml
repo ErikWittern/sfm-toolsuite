@@ -33,5 +33,27 @@
             contributorClass="edu.kit.sfm.servicefeaturemodel.presentation.ServicefeaturemodelActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="SFMDesigner.General"
+            nameFilter="*.sfm"
+            objectClass="org.eclipse.ui.IEditorInput">
+         <menu
+               id="SFMDesigner.GeneralMenu"
+               label="Service Feature Model (SFM)">
+            <separator
+                  name="group">
+            </separator>
+         </menu>
+         <action
+               class="edu.kit.sfm.configuration_set_determination.view.ConfigurationDeterminationActionDelegate"
+               id="edu.kit.sfm.editor.determineconfigurations"
+               label="Determine configuration set"
+               menubarPath="SFMDesigner.GeneralMenu/group">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>
