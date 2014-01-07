@@ -734,13 +734,22 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	int CONFIGURATION__DESCRIPTION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__SELECTED = 6;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 6;
+	int CONFIGURATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.sfm.servicefeaturemodel.impl.PreferenceImpl <em>Preference</em>}' class.
@@ -1638,6 +1647,17 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	EAttribute getConfiguration_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.Configuration#isSelected <em>Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected</em>'.
+	 * @see edu.kit.sfm.servicefeaturemodel.Configuration#isSelected()
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	EAttribute getConfiguration_Selected();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.sfm.servicefeaturemodel.Preference <em>Preference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2330,6 +2350,14 @@ public interface ServicefeaturemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIGURATION__DESCRIPTION = eINSTANCE.getConfiguration_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIGURATION__SELECTED = eINSTANCE.getConfiguration_Selected();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.sfm.servicefeaturemodel.impl.PreferenceImpl <em>Preference</em>}' class.

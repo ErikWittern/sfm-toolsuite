@@ -67,6 +67,7 @@ public class ConfigurationItemProvider
 			addIdPropertyDescriptor(object);
 			addServiceFeaturesPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +161,28 @@ public class ConfigurationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Configuration_selected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_selected_feature", "_UI_Configuration_type"),
+				 ServicefeaturemodelPackage.Literals.CONFIGURATION__SELECTED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -230,6 +253,7 @@ public class ConfigurationItemProvider
 			case ServicefeaturemodelPackage.CONFIGURATION__NAME:
 			case ServicefeaturemodelPackage.CONFIGURATION__ID:
 			case ServicefeaturemodelPackage.CONFIGURATION__DESCRIPTION:
+			case ServicefeaturemodelPackage.CONFIGURATION__SELECTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ServicefeaturemodelPackage.CONFIGURATION__PREFERENCES:

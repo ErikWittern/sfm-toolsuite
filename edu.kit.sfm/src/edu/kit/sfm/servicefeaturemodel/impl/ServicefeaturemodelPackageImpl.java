@@ -681,6 +681,15 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConfiguration_Selected() {
+		return (EAttribute)configurationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPreference() {
 		return preferenceEClass;
 	}
@@ -994,6 +1003,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		createEReference(configurationEClass, CONFIGURATION__PREFERENCES);
 		createEReference(configurationEClass, CONFIGURATION__ATTRIBUTES);
 		createEAttribute(configurationEClass, CONFIGURATION__DESCRIPTION);
+		createEAttribute(configurationEClass, CONFIGURATION__SELECTED);
 
 		preferenceEClass = createEClass(PREFERENCE);
 		createEAttribute(preferenceEClass, PREFERENCE__CREATION_DATE);
@@ -1120,6 +1130,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		initEReference(getConfiguration_Preferences(), this.getPreference(), null, "preferences", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfiguration_Description(), ecorePackage.getEString(), "description", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfiguration_Selected(), ecorePackage.getEBoolean(), "selected", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(configurationEClass, ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostic", 0, 1, IS_UNIQUE, IS_ORDERED);

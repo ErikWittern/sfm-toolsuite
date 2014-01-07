@@ -16,8 +16,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import edu.kit.sfm.servicefeaturemodel.Attribute;
@@ -40,6 +42,7 @@ import edu.kit.sfm.servicefeaturemodel.util.ServicefeaturemodelValidator;
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ConfigurationImpl#getPreferences <em>Preferences</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ConfigurationImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ConfigurationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ConfigurationImpl#isSelected <em>Selected</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,6 +138,26 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SELECTED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,6 +279,27 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSelected() {
+		return selected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelected(boolean newSelected) {
+		boolean oldSelected = selected;
+		selected = newSelected;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.CONFIGURATION__SELECTED, oldSelected, selected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Check for existence of ID
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -320,6 +364,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return getAttributes();
 			case ServicefeaturemodelPackage.CONFIGURATION__DESCRIPTION:
 				return getDescription();
+			case ServicefeaturemodelPackage.CONFIGURATION__SELECTED:
+				return isSelected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -354,6 +400,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case ServicefeaturemodelPackage.CONFIGURATION__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
+			case ServicefeaturemodelPackage.CONFIGURATION__SELECTED:
+				setSelected((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -384,6 +433,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case ServicefeaturemodelPackage.CONFIGURATION__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ServicefeaturemodelPackage.CONFIGURATION__SELECTED:
+				setSelected(SELECTED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -408,6 +460,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return attributes != null && !attributes.isEmpty();
 			case ServicefeaturemodelPackage.CONFIGURATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ServicefeaturemodelPackage.CONFIGURATION__SELECTED:
+				return selected != SELECTED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,6 +482,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		result.append(id);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", selected: ");
+		result.append(selected);
 		result.append(')');
 		return result.toString();
 	}
