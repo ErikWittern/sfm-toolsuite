@@ -43,7 +43,7 @@ public class SkylineFilterActionDelegatePerformanceBNL extends ActionDelegate{
 				Resource resource = resourceSet.getResource(resourceURI, true);
 				Service service = (Service) resource.getContents().get(0);
 				
-				System.out.println("Skyline performance for service: " + service.getName());
+				System.out.println("Skyline (BNL) performance for service: " + service.getName());
 				
 				for(int i = 0; i < runs ; i++){
 					long startTime = System.currentTimeMillis();
