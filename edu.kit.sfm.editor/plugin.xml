@@ -53,6 +53,16 @@
                label="Determine configuration set"
                menubarPath="SFMDesigner.GeneralMenu/group">
          </action>
+         <menu
+               id="SFMDesigner.PerformanceMenu"
+               label="SFM Performance">
+         </menu>
+         <action
+               class="edu.kit.sfm.configuration_set_determination.view.ConfigurationDeterminationActionDelegatePerformance"
+               id="edu.kit.sfm.editor.determineconfigurationsperformance"
+               label="Performance determine configuration set"
+               menubarPath="SFMDesigner.PerformanceMenu/group">
+         </action>
       </objectContribution>
    </extension>
 
