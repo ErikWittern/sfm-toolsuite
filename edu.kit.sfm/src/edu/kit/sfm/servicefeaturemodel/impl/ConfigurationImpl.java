@@ -161,11 +161,13 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Set selected property to true at the beginning
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ConfigurationImpl() {
 		super();
+		selected = true;
 	}
 
 	/**

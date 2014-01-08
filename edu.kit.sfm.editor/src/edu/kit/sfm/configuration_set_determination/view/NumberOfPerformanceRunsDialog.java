@@ -50,6 +50,7 @@ public class NumberOfPerformanceRunsDialog extends TitleAreaDialog {
 	    dataFirstName.horizontalAlignment = GridData.FILL;
 
 	    numberOfPerformanceRuns = new Text(container, SWT.BORDER);
+	    numberOfPerformanceRuns.setText("1");
 	    numberOfPerformanceRuns.setLayoutData(dataFirstName);
 	  }
 
