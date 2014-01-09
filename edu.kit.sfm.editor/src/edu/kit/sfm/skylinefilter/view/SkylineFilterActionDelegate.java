@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -16,7 +15,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
-import choco.kernel.solver.variables.set.SetSubDomain;
 import edu.kit.sfm.servicefeaturemodel.Configuration;
 import edu.kit.sfm.servicefeaturemodel.Service;
 import edu.kit.sfm.skylinefilter.controller.SkylineFilter;
@@ -41,7 +39,7 @@ public class SkylineFilterActionDelegate extends ActionDelegate{
 		int oldCount = service.getConfigurations().getConfigurations().size();
 		
 		SkylineFilter skylineFilter = new SkylineFilter();
-		List<Configuration> skyline = skylineFilter.getSkylineConfigurations(service);
+		List<Configuration> skyline = skylineFilter.getSkylineConfigurationsBNL(service);
 		
 		String message = "Please confirm that you want to set the " + skyline.size() + 
 				" skyline configurations to 'selected' and the other " + (oldCount - skyline.size()) + 

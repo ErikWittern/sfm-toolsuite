@@ -1,7 +1,6 @@
 package edu.kit.sfm.skylinefilter.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import edu.kit.sfm.servicefeaturemodel.Configuration;
@@ -21,17 +20,20 @@ public class SkylineFilter {
 		numComp = 0;
 		List<Configuration> confList = service.getConfigurations().getConfigurations();
 		List<Configuration> window = new ArrayList<Configuration>();
+//		System.out.println("SKYLINE BNL==================================");
 //		System.out.println("Original configuration list contains " + confList.size() + " configurations.");
 		
 		for(Configuration p : confList){
 			List<Configuration> toDelete = new ArrayList<Configuration>();
 			window.add(p);
 			for(Configuration q : window){
-				if(!p.equals(q) && isDominatedBy(p, q)){
-					toDelete.add(p);
-					break;
-				} else if (isDominatedBy(q, p)){
-					toDelete.add(q);
+				if(!p.equals(q)){
+					if(dominates(q, p)){
+						toDelete.add(p);
+						break;
+					} else if (dominates(p, q)){
+						toDelete.add(q);
+					}
 				}
 			}
 			window.removeAll(toDelete);
@@ -51,10 +53,11 @@ public class SkylineFilter {
 		numComp = 0;
 		List<Configuration> confList = service.getConfigurations().getConfigurations();
 		List<Configuration> dominatedConfs = new ArrayList<Configuration>();
+//		System.out.println("SKYLINE==================================");
 //		System.out.println("Original configuration list contains " + confList.size() + " configurations.");
 		for(Configuration conf : confList){
 			for(Configuration conf2 : confList){
-				if(isDominatedBy(conf, conf2)){
+				if(dominates(conf2, conf)){
 					dominatedConfs.add(conf);
 					break;
 				}
@@ -69,40 +72,46 @@ public class SkylineFilter {
 
 	
 	/**
-	 * Determines whether conf is dominated by conf2
+	 * Determines whether c1 dominates c2.
+	 * To dominate, c1 needs to be equal or better than c2 in any attribute.
+	 * To NOT be dominated, conf needs to be better in any of the attributes.
+	 * 
 	 * @param conf
 	 * @param conf2
 	 * @return true, if conf is completely dominated by conf2
 	 */
-	private boolean isDominatedBy(Configuration conf, Configuration conf2) {
-		boolean isDominated = true;
-		for(int i = 0; i < conf.getAttributes().size(); i++){
-			if(conf.getAttributes().get(i).getAttributeType().getScaleOrder() == ScaleOrders.LOWER_IS_BETTER){
-				if(Double.parseDouble(conf.getAttributes().get(i).getInstantiationValue()) 
-						<= 
-						Double.parseDouble(conf2.getAttributes().get(i).getInstantiationValue())){
-					isDominated = false;
-					break;
+	private boolean dominates(Configuration c1, Configuration c2) {
+//		System.out.println("Does " + c1.getName() + " dominate " + c2.getName() + "?");
+		numComp++;
+		boolean betterInAtLeastOne = false;
+		for(int i = 0; i < c1.getAttributes().size(); i++){
+			if(c1.getAttributes().get(i).getAttributeType().getScaleOrder() == ScaleOrders.LOWER_IS_BETTER){
+				if(Double.parseDouble(c2.getAttributes().get(i).getInstantiationValue()) 
+						<
+						Double.parseDouble(c1.getAttributes().get(i).getInstantiationValue())){
+//					System.out.println("  " + c1.getName() + " is worse (= bigger value) than " + c2.getName() + " in: " + c1.getAttributes().get(i).getAttributeType().getName());
+					return false;
+				} else if (Double.parseDouble(c1.getAttributes().get(i).getInstantiationValue()) 
+						<
+						Double.parseDouble(c2.getAttributes().get(i).getInstantiationValue())){
+					betterInAtLeastOne = true;
 				}
-			} else if(conf.getAttributes().get(i).getAttributeType().getScaleOrder() == ScaleOrders.HIGHER_IS_BETTER){
-				if(Double.parseDouble(conf.getAttributes().get(i).getInstantiationValue()) 
-						>= 
-						Double.parseDouble(conf2.getAttributes().get(i).getInstantiationValue())){
-					isDominated = false;
-					break;
-				}
-			} else if(conf.getAttributes().get(i).getAttributeType().getScaleOrder() == ScaleOrders.EXISTENCE_IS_BETTER) {
-				if(Integer.parseInt(conf.getAttributes().get(i).getInstantiationValue()) == 1 && 
-						Integer.parseInt(conf2.getAttributes().get(i).getInstantiationValue()) == 0){
-					isDominated = false;
-					break;
+			} else {
+				if(Double.parseDouble(c2.getAttributes().get(i).getInstantiationValue()) 
+						>
+						Double.parseDouble(c1.getAttributes().get(i).getInstantiationValue())){
+//					System.out.println("  " + c1.getName() + " is worse (= smaller value) than " + c2.getName() + " in: " + c1.getAttributes().get(i).getAttributeType().getName());
+					return false;
+				} else if (Double.parseDouble(c1.getAttributes().get(i).getInstantiationValue()) 
+						>
+						Double.parseDouble(c2.getAttributes().get(i).getInstantiationValue())){
+					betterInAtLeastOne = true;
 				}
 			}
 		}
-//		if(isDominated){
-//			System.out.println("  Configuration " + conf.getName() + " is dominated by " + conf2.getName());
+//		if(betterInAtLeastOne){
+//			System.out.println(c1.getName() + " does indeed dominate " + c2.getName());
 //		}
-		numComp++;
-		return isDominated;
+		return betterInAtLeastOne;
 	}
 }

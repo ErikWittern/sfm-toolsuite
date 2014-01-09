@@ -1,7 +1,5 @@
 package edu.kit.sfm.skylinefilter.view;
 
-import java.util.List;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,7 +14,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
 import edu.kit.sfm.configuration_set_determination.view.NumberOfPerformanceRunsDialog;
-import edu.kit.sfm.servicefeaturemodel.Configuration;
 import edu.kit.sfm.servicefeaturemodel.Service;
 import edu.kit.sfm.skylinefilter.controller.SkylineFilter;
 
@@ -48,7 +45,7 @@ public class SkylineFilterActionDelegatePerformanceBNL extends ActionDelegate{
 				for(int i = 0; i < runs ; i++){
 					long startTime = System.currentTimeMillis();
 					SkylineFilter skylineFilter = new SkylineFilter();
-					List<Configuration> skyline = skylineFilter.getSkylineConfigurationsBNL(service);
+					skylineFilter.getSkylineConfigurationsBNL(service);
 					long endTime = System.currentTimeMillis();
 					System.out.println(endTime - startTime);
 				}
