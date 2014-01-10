@@ -81,6 +81,12 @@
                label="Performance skyline filter BNL"
                menubarPath="SFMDesigner.PerformanceMenu/group">
          </action>
+         <action
+               class="edu.kit.sfm.requirementsfilter.view.RequirementsFilterWizardActionDelegate"
+               id="edu.kit.sfm.editor.requirementsfilter"
+               label="Requirements filter"
+               menubarPath="SFMDesigner.GeneralMenu/group">
+         </action>
       </objectContribution>
    </extension>
 
