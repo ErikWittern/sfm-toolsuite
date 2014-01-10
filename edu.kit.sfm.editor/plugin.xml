@@ -87,6 +87,12 @@
                label="Requirements filter"
                menubarPath="SFMDesigner.GeneralMenu/group">
          </action>
+         <action
+               class="edu.kit.sfm.requirementsfilterweighted.view.TestWeightedReqActionDelegate"
+               id="edu.kit.sfm.editor.testweightedrequirements"
+               label="Test weighted requirements..."
+               menubarPath="SFMDesigner.GeneralMenu/group">
+         </action>
       </objectContribution>
    </extension>
 
