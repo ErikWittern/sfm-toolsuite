@@ -65,12 +65,8 @@ public class ServiceFeatureItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			//addMinAmountPropertyDescriptor(object);
-			//addMaxAmountPropertyDescriptor(object);
-			//addMapsToGSMElementPropertyDescriptor(object);
-			//addAssociatedGSMElementPropertyDescriptor(object);
-			//addIdPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
+			addRequirementWeightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,94 +116,6 @@ public class ServiceFeatureItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Min Amount feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMinAmountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceFeature_minAmount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceFeature_minAmount_feature", "_UI_ServiceFeature_type"),
-				 ServicefeaturemodelPackage.Literals.SERVICE_FEATURE__MIN_AMOUNT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Max Amount feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMaxAmountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceFeature_maxAmount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceFeature_maxAmount_feature", "_UI_ServiceFeature_type"),
-				 ServicefeaturemodelPackage.Literals.SERVICE_FEATURE__MAX_AMOUNT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Maps To GSM Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMapsToGSMElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceFeature_mapsToGSMElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceFeature_mapsToGSMElement_feature", "_UI_ServiceFeature_type"),
-				 ServicefeaturemodelPackage.Literals.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Associated GSM Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssociatedGSMElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceFeature_associatedGSMElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceFeature_associatedGSMElement_feature", "_UI_ServiceFeature_type"),
-				 ServicefeaturemodelPackage.Literals.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,6 +155,28 @@ public class ServiceFeatureItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Requirement Weight feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequirementWeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceFeature_requirementWeight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceFeature_requirementWeight_feature", "_UI_ServiceFeature_type"),
+				 ServicefeaturemodelPackage.Literals.SERVICE_FEATURE__REQUIREMENT_WEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -313,12 +243,9 @@ public class ServiceFeatureItemProvider
 		switch (notification.getFeatureID(ServiceFeature.class)) {
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__NAME:
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__DESCRIPTION:
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT:
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT:
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT:
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT:
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ID:
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED:
+			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ATTRIBUTES:

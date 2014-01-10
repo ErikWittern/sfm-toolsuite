@@ -61,13 +61,13 @@ public class AttributeTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 			addNamePropertyDescriptor(object);
-			//addDomainPropertyDescriptor(object);
 			addAggregationRulePropertyDescriptor(object);
 			addScaleOrderPropertyDescriptor(object);
 			addToBeEvaluatedPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addCustomAttributeTypePriorityPropertyDescriptor(object);
 			addRequirementPropertyDescriptor(object);
+			addRequirementWeightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -249,6 +249,28 @@ public class AttributeTypeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Requirement Weight feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequirementWeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AttributeType_requirementWeight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeType_requirementWeight_feature", "_UI_AttributeType_type"),
+				 ServicefeaturemodelPackage.Literals.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns AttributeType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +315,7 @@ public class AttributeTypeItemProvider
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__DESCRIPTION:
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__CUSTOM_ATTRIBUTE_TYPE_PRIORITY:
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT:
+			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

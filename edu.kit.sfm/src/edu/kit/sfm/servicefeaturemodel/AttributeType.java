@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getCustomAttributeTypePriority <em>Custom Attribute Type Priority</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getRequirementWeight <em>Requirement Weight</em>}</li>
  * </ul>
  * </p>
  *
@@ -244,5 +245,32 @@ public interface AttributeType extends EObject {
 	 * @generated
 	 */
 	void setRequirement(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Requirement Weight</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Requirement Weight</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Requirement Weight</em>' attribute.
+	 * @see #setRequirementWeight(String)
+	 * @see edu.kit.sfm.servicefeaturemodel.ServicefeaturemodelPackage#getAttributeType_RequirementWeight()
+	 * @model default="1.0"
+	 * @generated
+	 */
+	String getRequirementWeight();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getRequirementWeight <em>Requirement Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Requirement Weight</em>' attribute.
+	 * @see #getRequirementWeight()
+	 * @generated
+	 */
+	void setRequirementWeight(String value);
 
 } // AttributeType

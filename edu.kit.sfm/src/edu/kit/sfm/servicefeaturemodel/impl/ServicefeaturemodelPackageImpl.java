@@ -393,7 +393,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceFeature_MinAmount() {
+	public EAttribute getServiceFeature_Id() {
 		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -402,7 +402,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceFeature_MaxAmount() {
+	public EAttribute getServiceFeature_Required() {
 		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -411,35 +411,8 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getServiceFeature_MapsToGSMElement() {
+	public EAttribute getServiceFeature_RequirementWeight() {
 		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getServiceFeature_AssociatedGSMElement() {
-		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getServiceFeature_Id() {
-		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getServiceFeature_Required() {
-		return (EAttribute)serviceFeatureEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -888,6 +861,15 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAttributeType_RequirementWeight() {
+		return (EAttribute)attributeTypeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAttributeDomain() {
 		return attributeDomainEEnum;
 	}
@@ -963,12 +945,9 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		createEReference(serviceFeatureEClass, SERVICE_FEATURE__REQUIRES);
 		createEReference(serviceFeatureEClass, SERVICE_FEATURE__EXCLUDES);
 		createEReference(serviceFeatureEClass, SERVICE_FEATURE__SERVICE_FEATURES);
-		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__MIN_AMOUNT);
-		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__MAX_AMOUNT);
-		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT);
-		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT);
 		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__ID);
 		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__REQUIRED);
+		createEAttribute(serviceFeatureEClass, SERVICE_FEATURE__REQUIREMENT_WEIGHT);
 
 		optionalServiceFeatureEClass = createEClass(OPTIONAL_SERVICE_FEATURE);
 		createEAttribute(optionalServiceFeatureEClass, OPTIONAL_SERVICE_FEATURE__FEATURE_TYPE);
@@ -1032,6 +1011,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		createEAttribute(attributeTypeEClass, ATTRIBUTE_TYPE__DESCRIPTION);
 		createEAttribute(attributeTypeEClass, ATTRIBUTE_TYPE__CUSTOM_ATTRIBUTE_TYPE_PRIORITY);
 		createEAttribute(attributeTypeEClass, ATTRIBUTE_TYPE__REQUIREMENT);
+		createEAttribute(attributeTypeEClass, ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT);
 
 		// Create enums
 		attributeDomainEEnum = createEEnum(ATTRIBUTE_DOMAIN);
@@ -1090,12 +1070,9 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		initEReference(getServiceFeature_Requires(), this.getRequires(), null, "requires", null, 0, -1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceFeature_Excludes(), this.getExcludes(), null, "excludes", null, 0, -1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceFeature_ServiceFeatures(), this.getServiceFeature(), null, "serviceFeatures", null, 0, -1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceFeature_MinAmount(), ecorePackage.getEInt(), "minAmount", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceFeature_MaxAmount(), ecorePackage.getEInt(), "maxAmount", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceFeature_MapsToGSMElement(), ecorePackage.getEBoolean(), "mapsToGSMElement", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceFeature_AssociatedGSMElement(), ecorePackage.getEString(), "associatedGSMElement", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getServiceFeature_Id(), ecorePackage.getEString(), "id", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getServiceFeature_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServiceFeature_RequirementWeight(), ecorePackage.getEString(), "requirementWeight", "1.0", 0, 1, ServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionalServiceFeatureEClass, OptionalServiceFeature.class, "OptionalServiceFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOptionalServiceFeature_FeatureType(), this.getFeatureTypes(), "featureType", "InstanceFeature", 0, 1, OptionalServiceFeature.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1168,6 +1145,7 @@ public class ServicefeaturemodelPackageImpl extends EPackageImpl implements Serv
 		initEAttribute(getAttributeType_Description(), ecorePackage.getEString(), "description", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeType_CustomAttributeTypePriority(), ecorePackage.getEInt(), "customAttributeTypePriority", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeType_Requirement(), ecorePackage.getEString(), "requirement", null, 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttributeType_RequirementWeight(), ecorePackage.getEString(), "requirementWeight", "1.0", 0, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(attributeDomainEEnum, AttributeDomain.class, "AttributeDomain");

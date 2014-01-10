@@ -37,12 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getRequires <em>Requires</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getExcludes <em>Excludes</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getServiceFeatures <em>Service Features</em>}</li>
- *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getMinAmount <em>Min Amount</em>}</li>
- *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getMaxAmount <em>Max Amount</em>}</li>
- *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#isMapsToGSMElement <em>Maps To GSM Element</em>}</li>
- *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getAssociatedGSMElement <em>Associated GSM Element</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getId <em>Id</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.ServiceFeatureImpl#getRequirementWeight <em>Requirement Weight</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,86 +137,6 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 	protected EList<ServiceFeature> serviceFeatures;
 
 	/**
-	 * The default value of the '{@link #getMinAmount() <em>Min Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MIN_AMOUNT_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMinAmount() <em>Min Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected int minAmount = MIN_AMOUNT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxAmount() <em>Max Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MAX_AMOUNT_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMaxAmount() <em>Max Amount</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected int maxAmount = MAX_AMOUNT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isMapsToGSMElement() <em>Maps To GSM Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMapsToGSMElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MAPS_TO_GSM_ELEMENT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMapsToGSMElement() <em>Maps To GSM Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMapsToGSMElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean mapsToGSMElement = MAPS_TO_GSM_ELEMENT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getAssociatedGSMElement() <em>Associated GSM Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssociatedGSMElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ASSOCIATED_GSM_ELEMENT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAssociatedGSMElement() <em>Associated GSM Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssociatedGSMElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected String associatedGSMElement = ASSOCIATED_GSM_ELEMENT_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +175,26 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 	 * @ordered
 	 */
 	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRequirementWeight() <em>Requirement Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQUIREMENT_WEIGHT_EDEFAULT = "1.0";
+
+	/**
+	 * The cached value of the '{@link #getRequirementWeight() <em>Requirement Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected String requirementWeight = REQUIREMENT_WEIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -419,90 +356,6 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMinAmount() {
-		return minAmount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMinAmount(int newMinAmount) {
-		int oldMinAmount = minAmount;
-		minAmount = newMinAmount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT, oldMinAmount, minAmount));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getMaxAmount() {
-		return maxAmount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxAmount(int newMaxAmount) {
-		int oldMaxAmount = maxAmount;
-		maxAmount = newMaxAmount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT, oldMaxAmount, maxAmount));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isMapsToGSMElement() {
-		return mapsToGSMElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMapsToGSMElement(boolean newMapsToGSMElement) {
-		boolean oldMapsToGSMElement = mapsToGSMElement;
-		mapsToGSMElement = newMapsToGSMElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT, oldMapsToGSMElement, mapsToGSMElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getAssociatedGSMElement() {
-		return associatedGSMElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssociatedGSMElement(String newAssociatedGSMElement) {
-		String oldAssociatedGSMElement = associatedGSMElement;
-		associatedGSMElement = newAssociatedGSMElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT, oldAssociatedGSMElement, associatedGSMElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getId() {
 		return id;
 	}
@@ -538,6 +391,27 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 		required = newRequired;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRequirementWeight() {
+		return requirementWeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequirementWeight(String newRequirementWeight) {
+		String oldRequirementWeight = requirementWeight;
+		requirementWeight = newRequirementWeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT, oldRequirementWeight, requirementWeight));
 	}
 
 	/**
@@ -584,18 +458,12 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 				return getExcludes();
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__SERVICE_FEATURES:
 				return getServiceFeatures();
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT:
-				return getMinAmount();
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT:
-				return getMaxAmount();
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT:
-				return isMapsToGSMElement();
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT:
-				return getAssociatedGSMElement();
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ID:
 				return getId();
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED:
 				return isRequired();
+			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT:
+				return getRequirementWeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -634,23 +502,14 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 				getServiceFeatures().clear();
 				getServiceFeatures().addAll((Collection<? extends ServiceFeature>)newValue);
 				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT:
-				setMinAmount((Integer)newValue);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT:
-				setMaxAmount((Integer)newValue);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT:
-				setMapsToGSMElement((Boolean)newValue);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT:
-				setAssociatedGSMElement((String)newValue);
-				return;
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ID:
 				setId((String)newValue);
 				return;
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED:
 				setRequired((Boolean)newValue);
+				return;
+			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT:
+				setRequirementWeight((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -685,23 +544,14 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__SERVICE_FEATURES:
 				getServiceFeatures().clear();
 				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT:
-				setMinAmount(MIN_AMOUNT_EDEFAULT);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT:
-				setMaxAmount(MAX_AMOUNT_EDEFAULT);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT:
-				setMapsToGSMElement(MAPS_TO_GSM_ELEMENT_EDEFAULT);
-				return;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT:
-				setAssociatedGSMElement(ASSOCIATED_GSM_ELEMENT_EDEFAULT);
-				return;
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ID:
 				setId(ID_EDEFAULT);
 				return;
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT:
+				setRequirementWeight(REQUIREMENT_WEIGHT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -729,18 +579,12 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 				return excludes != null && !excludes.isEmpty();
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__SERVICE_FEATURES:
 				return serviceFeatures != null && !serviceFeatures.isEmpty();
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MIN_AMOUNT:
-				return minAmount != MIN_AMOUNT_EDEFAULT;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAX_AMOUNT:
-				return maxAmount != MAX_AMOUNT_EDEFAULT;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT:
-				return mapsToGSMElement != MAPS_TO_GSM_ELEMENT_EDEFAULT;
-			case ServicefeaturemodelPackage.SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT:
-				return ASSOCIATED_GSM_ELEMENT_EDEFAULT == null ? associatedGSMElement != null : !ASSOCIATED_GSM_ELEMENT_EDEFAULT.equals(associatedGSMElement);
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case ServicefeaturemodelPackage.SERVICE_FEATURE__REQUIREMENT_WEIGHT:
+				return REQUIREMENT_WEIGHT_EDEFAULT == null ? requirementWeight != null : !REQUIREMENT_WEIGHT_EDEFAULT.equals(requirementWeight);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -759,18 +603,12 @@ public abstract class ServiceFeatureImpl extends EObjectImpl implements ServiceF
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", minAmount: ");
-		result.append(minAmount);
-		result.append(", maxAmount: ");
-		result.append(maxAmount);
-		result.append(", mapsToGSMElement: ");
-		result.append(mapsToGSMElement);
-		result.append(", associatedGSMElement: ");
-		result.append(associatedGSMElement);
 		result.append(", id: ");
 		result.append(id);
 		result.append(", required: ");
 		result.append(required);
+		result.append(", requirementWeight: ");
+		result.append(requirementWeight);
 		result.append(')');
 		return result.toString();
 	}

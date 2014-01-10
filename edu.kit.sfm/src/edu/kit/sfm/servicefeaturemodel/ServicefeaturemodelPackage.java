@@ -203,49 +203,13 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	int SERVICE_FEATURE__SERVICE_FEATURES = 6;
 
 	/**
-	 * The feature id for the '<em><b>Min Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_FEATURE__MIN_AMOUNT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Max Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_FEATURE__MAX_AMOUNT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Maps To GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Associated GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT = 10;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE__ID = 11;
+	int SERVICE_FEATURE__ID = 7;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -254,7 +218,16 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE__REQUIRED = 12;
+	int SERVICE_FEATURE__REQUIRED = 8;
+
+	/**
+	 * The feature id for the '<em><b>Requirement Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_FEATURE__REQUIREMENT_WEIGHT = 9;
 
 	/**
 	 * The number of structural features of the '<em>Service Feature</em>' class.
@@ -263,7 +236,7 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_FEATURE_COUNT = 13;
+	int SERVICE_FEATURE_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.sfm.servicefeaturemodel.impl.OptionalServiceFeatureImpl <em>Optional Service Feature</em>}' class.
@@ -339,42 +312,6 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	int OPTIONAL_SERVICE_FEATURE__SERVICE_FEATURES = SERVICE_FEATURE__SERVICE_FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Min Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_SERVICE_FEATURE__MIN_AMOUNT = SERVICE_FEATURE__MIN_AMOUNT;
-
-	/**
-	 * The feature id for the '<em><b>Max Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_SERVICE_FEATURE__MAX_AMOUNT = SERVICE_FEATURE__MAX_AMOUNT;
-
-	/**
-	 * The feature id for the '<em><b>Maps To GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT = SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT;
-
-	/**
-	 * The feature id for the '<em><b>Associated GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT = SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,6 +328,15 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTIONAL_SERVICE_FEATURE__REQUIRED = SERVICE_FEATURE__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Requirement Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL_SERVICE_FEATURE__REQUIREMENT_WEIGHT = SERVICE_FEATURE__REQUIREMENT_WEIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Feature Type</b></em>' attribute.
@@ -880,42 +826,6 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	int MANDATORY_SERVICE_FEATURE__SERVICE_FEATURES = SERVICE_FEATURE__SERVICE_FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Min Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_SERVICE_FEATURE__MIN_AMOUNT = SERVICE_FEATURE__MIN_AMOUNT;
-
-	/**
-	 * The feature id for the '<em><b>Max Amount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_SERVICE_FEATURE__MAX_AMOUNT = SERVICE_FEATURE__MAX_AMOUNT;
-
-	/**
-	 * The feature id for the '<em><b>Maps To GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT = SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT;
-
-	/**
-	 * The feature id for the '<em><b>Associated GSM Element</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT = SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -932,6 +842,15 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANDATORY_SERVICE_FEATURE__REQUIRED = SERVICE_FEATURE__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Requirement Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY_SERVICE_FEATURE__REQUIREMENT_WEIGHT = SERVICE_FEATURE__REQUIREMENT_WEIGHT;
 
 	/**
 	 * The feature id for the '<em><b>Feature Types</b></em>' attribute.
@@ -1090,13 +1009,22 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	int ATTRIBUTE_TYPE__REQUIREMENT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Requirement Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT = 8;
+
+	/**
 	 * The number of structural features of the '<em>Attribute Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TYPE_FEATURE_COUNT = 8;
+	int ATTRIBUTE_TYPE_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.sfm.servicefeaturemodel.AttributeDomain <em>Attribute Domain</em>}' enum.
@@ -1303,50 +1231,6 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	EReference getServiceFeature_ServiceFeatures();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#getMinAmount <em>Min Amount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Amount</em>'.
-	 * @see edu.kit.sfm.servicefeaturemodel.ServiceFeature#getMinAmount()
-	 * @see #getServiceFeature()
-	 * @generated
-	 */
-	EAttribute getServiceFeature_MinAmount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#getMaxAmount <em>Max Amount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Amount</em>'.
-	 * @see edu.kit.sfm.servicefeaturemodel.ServiceFeature#getMaxAmount()
-	 * @see #getServiceFeature()
-	 * @generated
-	 */
-	EAttribute getServiceFeature_MaxAmount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#isMapsToGSMElement <em>Maps To GSM Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maps To GSM Element</em>'.
-	 * @see edu.kit.sfm.servicefeaturemodel.ServiceFeature#isMapsToGSMElement()
-	 * @see #getServiceFeature()
-	 * @generated
-	 */
-	EAttribute getServiceFeature_MapsToGSMElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#getAssociatedGSMElement <em>Associated GSM Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Associated GSM Element</em>'.
-	 * @see edu.kit.sfm.servicefeaturemodel.ServiceFeature#getAssociatedGSMElement()
-	 * @see #getServiceFeature()
-	 * @generated
-	 */
-	EAttribute getServiceFeature_AssociatedGSMElement();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1367,6 +1251,17 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getServiceFeature_Required();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.ServiceFeature#getRequirementWeight <em>Requirement Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Requirement Weight</em>'.
+	 * @see edu.kit.sfm.servicefeaturemodel.ServiceFeature#getRequirementWeight()
+	 * @see #getServiceFeature()
+	 * @generated
+	 */
+	EAttribute getServiceFeature_RequirementWeight();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.sfm.servicefeaturemodel.OptionalServiceFeature <em>Optional Service Feature</em>}'.
@@ -1894,6 +1789,17 @@ public interface ServicefeaturemodelPackage extends EPackage {
 	EAttribute getAttributeType_Requirement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.sfm.servicefeaturemodel.AttributeType#getRequirementWeight <em>Requirement Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Requirement Weight</em>'.
+	 * @see edu.kit.sfm.servicefeaturemodel.AttributeType#getRequirementWeight()
+	 * @see #getAttributeType()
+	 * @generated
+	 */
+	EAttribute getAttributeType_RequirementWeight();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.kit.sfm.servicefeaturemodel.AttributeDomain <em>Attribute Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2080,38 +1986,6 @@ public interface ServicefeaturemodelPackage extends EPackage {
 		EReference SERVICE_FEATURE__SERVICE_FEATURES = eINSTANCE.getServiceFeature_ServiceFeatures();
 
 		/**
-		 * The meta object literal for the '<em><b>Min Amount</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE_FEATURE__MIN_AMOUNT = eINSTANCE.getServiceFeature_MinAmount();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Amount</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE_FEATURE__MAX_AMOUNT = eINSTANCE.getServiceFeature_MaxAmount();
-
-		/**
-		 * The meta object literal for the '<em><b>Maps To GSM Element</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE_FEATURE__MAPS_TO_GSM_ELEMENT = eINSTANCE.getServiceFeature_MapsToGSMElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Associated GSM Element</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SERVICE_FEATURE__ASSOCIATED_GSM_ELEMENT = eINSTANCE.getServiceFeature_AssociatedGSMElement();
-
-		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2126,6 +2000,14 @@ public interface ServicefeaturemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE_FEATURE__REQUIRED = eINSTANCE.getServiceFeature_Required();
+
+		/**
+		 * The meta object literal for the '<em><b>Requirement Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_FEATURE__REQUIREMENT_WEIGHT = eINSTANCE.getServiceFeature_RequirementWeight();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.sfm.servicefeaturemodel.impl.OptionalServiceFeatureImpl <em>Optional Service Feature</em>}' class.
@@ -2546,6 +2428,14 @@ public interface ServicefeaturemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE_TYPE__REQUIREMENT = eINSTANCE.getAttributeType_Requirement();
+
+		/**
+		 * The meta object literal for the '<em><b>Requirement Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT = eINSTANCE.getAttributeType_RequirementWeight();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.sfm.servicefeaturemodel.AttributeDomain <em>Attribute Domain</em>}' enum.

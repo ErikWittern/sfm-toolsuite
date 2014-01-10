@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.AttributeTypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.AttributeTypeImpl#getCustomAttributeTypePriority <em>Custom Attribute Type Priority</em>}</li>
  *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.AttributeTypeImpl#getRequirement <em>Requirement</em>}</li>
+ *   <li>{@link edu.kit.sfm.servicefeaturemodel.impl.AttributeTypeImpl#getRequirementWeight <em>Requirement Weight</em>}</li>
  * </ul>
  * </p>
  *
@@ -195,6 +196,26 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 	 * @ordered
 	 */
 	protected String requirement = REQUIREMENT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRequirementWeight() <em>Requirement Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REQUIREMENT_WEIGHT_EDEFAULT = "1.0";
+
+	/**
+	 * The cached value of the '{@link #getRequirementWeight() <em>Requirement Weight</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirementWeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected String requirementWeight = REQUIREMENT_WEIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,6 +421,27 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRequirementWeight() {
+		return requirementWeight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequirementWeight(String newRequirementWeight) {
+		String oldRequirementWeight = requirementWeight;
+		requirementWeight = newRequirementWeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT, oldRequirementWeight, requirementWeight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -419,6 +461,8 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 				return getCustomAttributeTypePriority();
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT:
 				return getRequirement();
+			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT:
+				return getRequirementWeight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,6 +498,9 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 				return;
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT:
 				setRequirement((String)newValue);
+				return;
+			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT:
+				setRequirementWeight((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -491,6 +538,9 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT:
 				setRequirement(REQUIREMENT_EDEFAULT);
 				return;
+			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT:
+				setRequirementWeight(REQUIREMENT_WEIGHT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -519,6 +569,8 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 				return customAttributeTypePriority != CUSTOM_ATTRIBUTE_TYPE_PRIORITY_EDEFAULT;
 			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT:
 				return REQUIREMENT_EDEFAULT == null ? requirement != null : !REQUIREMENT_EDEFAULT.equals(requirement);
+			case ServicefeaturemodelPackage.ATTRIBUTE_TYPE__REQUIREMENT_WEIGHT:
+				return REQUIREMENT_WEIGHT_EDEFAULT == null ? requirementWeight != null : !REQUIREMENT_WEIGHT_EDEFAULT.equals(requirementWeight);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -549,6 +601,8 @@ public class AttributeTypeImpl extends EObjectImpl implements AttributeType {
 		result.append(customAttributeTypePriority);
 		result.append(", requirement: ");
 		result.append(requirement);
+		result.append(", requirementWeight: ");
+		result.append(requirementWeight);
 		result.append(')');
 		return result.toString();
 	}
