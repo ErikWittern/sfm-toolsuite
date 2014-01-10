@@ -20,8 +20,8 @@ public class SkylineFilter {
 		numComp = 0;
 		List<Configuration> confList = service.getConfigurations().getConfigurations();
 		List<Configuration> window = new ArrayList<Configuration>();
-//		System.out.println("SKYLINE BNL==================================");
-//		System.out.println("Original configuration list contains " + confList.size() + " configurations.");
+		System.out.println("SKYLINE BNL==================================");
+		System.out.println("Original configuration list contains " + confList.size() + " configurations.");
 		
 		for(Configuration p : confList){
 			List<Configuration> toDelete = new ArrayList<Configuration>();
@@ -38,8 +38,8 @@ public class SkylineFilter {
 			}
 			window.removeAll(toDelete);
 		}	
-//		System.out.println("Skyline BNL - Adapted configuration list contains " + window.size() + " configurations (" + (confList.size() - window.size()) + " removed).");
-//		System.out.println("Number of comparisons: " + numComp);
+		System.out.println("Skyline BNL - Adapted configuration list contains " + window.size() + " configurations (" + (confList.size() - window.size()) + " removed).");
+		System.out.println("Number of comparisons: " + numComp);
 		return window;
 	}
 	
