@@ -82,7 +82,7 @@
                menubarPath="SFMDesigner.PerformanceMenu/group">
          </action>
          <action
-               class="edu.kit.sfm.requirementsfilter.view.RequirementsFilterWizardActionDelegate"
+               class="edu.kit.sfm.requirementsfilterweighted.view.WeightedRequirementsActionDelegate"
                id="edu.kit.sfm.editor.requirementsfilter"
                label="Requirements filter"
                menubarPath="SFMDesigner.GeneralMenu/group">
