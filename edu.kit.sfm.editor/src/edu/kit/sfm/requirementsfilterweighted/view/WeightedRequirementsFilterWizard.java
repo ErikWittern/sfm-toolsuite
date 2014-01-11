@@ -13,9 +13,11 @@ public class WeightedRequirementsFilterWizard extends Wizard {
 	/**
 	 * Variables to be used throughout the wizard:
 	 */
-	private ReviewRequirementsPage statementPage;
+	private ReviewRequirementsPage reviewPage;
+	private ResultsRequirementsPage resultsPage;
 	private List<FeatureRequirement> featureReqList;
 	private List<AttributeTypeRequirement> attReqList;
+	private Service service;
 	
 	/**
 	 * Constructor
@@ -23,6 +25,7 @@ public class WeightedRequirementsFilterWizard extends Wizard {
 	public WeightedRequirementsFilterWizard(Service service, List<FeatureRequirement> featureReqList, List<AttributeTypeRequirement> attReqList) {
 		this.featureReqList = featureReqList;
 		this.attReqList = attReqList;
+		this.service = service;
 		setWindowTitle("Weighted requirements filter");
 	}
 
@@ -45,8 +48,10 @@ public class WeightedRequirementsFilterWizard extends Wizard {
 	 * addPages
 	 */
 	public void addPages() {
-		statementPage = new ReviewRequirementsPage("Configure requirements filter");
-		addPage(statementPage);
+		reviewPage = new ReviewRequirementsPage("Configure requirements filter");
+		resultsPage = new ResultsRequirementsPage("Review results");
+		addPage(reviewPage);
+		addPage(resultsPage);
 	}
 	
 	/**
@@ -69,5 +74,9 @@ public class WeightedRequirementsFilterWizard extends Wizard {
 
 	public void setAttReqList(List<AttributeTypeRequirement> attReqList) {
 		this.attReqList = attReqList;
+	}
+	
+	public Service getService(){
+		return service;
 	}
 }

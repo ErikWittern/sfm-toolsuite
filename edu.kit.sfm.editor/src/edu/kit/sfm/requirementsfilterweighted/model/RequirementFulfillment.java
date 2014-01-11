@@ -96,4 +96,20 @@ public class RequirementFulfillment {
 		result += "------------------------------------------------------\n";
 		return result;
 	}
+	
+	public String getFeatureReqSummary(){
+		String result = "";
+		for(Map.Entry<FeatureRequirement, Double> entry : this.featureReqGapMap.entrySet()){
+			result += "\"" + entry.getKey().getFeatureName() + "\": " + entry.getValue() + " | ";
+		}
+		return result;
+	}
+	
+	public String getAttributeReqSummary(){
+		String result = "";
+		for(Map.Entry<AttributeTypeRequirement, Double> entry : this.attReqGapMap.entrySet()){
+			result += "\"" + entry.getKey().getAttName() + "\": " + entry.getValue() + " | ";
+		}
+		return result;
+	}
 }

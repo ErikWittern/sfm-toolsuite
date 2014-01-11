@@ -49,6 +49,7 @@ public class WeightedRequirementsActionDelegate extends ActionDelegate implement
 		// Initiate wizard:
 		WeightedRequirementsFilterWizard wizard = new WeightedRequirementsFilterWizard(service, featureReqList, attReqList);
 		WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
+		dialog.setPageSize(620, 600);
 		dialog.open();
 	}
 }
