@@ -1,4 +1,4 @@
-package edu.kit.sfm.configuration_set_determination.view;
+package edu.kit.sfm.utils;
 
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -50,7 +50,7 @@ public class NumberOfPerformanceRunsDialog extends TitleAreaDialog {
 	    dataFirstName.horizontalAlignment = GridData.FILL;
 
 	    numberOfPerformanceRuns = new Text(container, SWT.BORDER);
-	    numberOfPerformanceRuns.setText("1");
+	    numberOfPerformanceRuns.setText("100");
 	    numberOfPerformanceRuns.setLayoutData(dataFirstName);
 	  }
 

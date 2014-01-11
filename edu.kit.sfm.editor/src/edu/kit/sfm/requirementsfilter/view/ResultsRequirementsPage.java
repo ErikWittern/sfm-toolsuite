@@ -1,4 +1,4 @@
-package edu.kit.sfm.requirementsfilterweighted.view;
+package edu.kit.sfm.requirementsfilter.view;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +16,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import edu.kit.sfm.requirementsfilterweighted.controller.WeightedRequirementsFilter;
-import edu.kit.sfm.requirementsfilterweighted.model.RequirementFulfillment;
+import edu.kit.sfm.requirementsfilter.controller.RequirementsFilter;
+import edu.kit.sfm.requirementsfilter.model.RequirementFulfillment;
 
 public class ResultsRequirementsPage extends WizardPage {
 	
@@ -166,11 +166,11 @@ public class ResultsRequirementsPage extends WizardPage {
 	 */
 	public void filterRequirements(){
 		// Create and apply requirements filter:
-		WeightedRequirementsFilter filter = new WeightedRequirementsFilter();
+		RequirementsFilter filter = new RequirementsFilter();
 		fulfillments = filter.filterWeightedRequirements(
-				((WeightedRequirementsFilterWizard)getWizard()).getService(), 
-				((WeightedRequirementsFilterWizard)getWizard()).getFeatureReqList(), 
-				((WeightedRequirementsFilterWizard)getWizard()).getAttReqList());
+				((RequirementsFilterWizard)getWizard()).getService(), 
+				((RequirementsFilterWizard)getWizard()).getFeatureReqList(), 
+				((RequirementsFilterWizard)getWizard()).getAttReqList());
 		// Sort results:
 		Collections.sort(fulfillments, new Comparator<RequirementFulfillment>() {
 			@Override

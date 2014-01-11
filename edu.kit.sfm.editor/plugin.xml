@@ -82,16 +82,16 @@
                menubarPath="SFMDesigner.PerformanceMenu/group">
          </action>
          <action
-               class="edu.kit.sfm.requirementsfilterweighted.view.WeightedRequirementsActionDelegate"
+               class="edu.kit.sfm.requirementsfilter.view.RequirementsFilterActionDelegate"
                id="edu.kit.sfm.editor.requirementsfilter"
                label="Requirements filter"
                menubarPath="SFMDesigner.GeneralMenu/group">
          </action>
          <action
-               class="edu.kit.sfm.requirementsfilterweighted.view.TestWeightedReqActionDelegate"
+               class="edu.kit.sfm.requirementsfilter.view.RequirementsFilterPerformanceActionDelegate"
                id="edu.kit.sfm.editor.testweightedrequirements"
-               label="Test weighted requirements..."
-               menubarPath="SFMDesigner.GeneralMenu/group">
+               label="Performance requirements filter"
+               menubarPath="SFMDesigner.PerformanceMenu/group">
          </action>
       </objectContribution>
    </extension>

@@ -1,4 +1,4 @@
-package edu.kit.sfm.requirementsfilterweighted.view;
+package edu.kit.sfm.requirementsfilter.view;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -13,8 +13,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import edu.kit.sfm.requirementsfilterweighted.model.AttributeTypeRequirement;
-import edu.kit.sfm.requirementsfilterweighted.model.FeatureRequirement;
+import edu.kit.sfm.requirementsfilter.model.AttributeTypeRequirement;
+import edu.kit.sfm.requirementsfilter.model.FeatureRequirement;
 
 public class ReviewRequirementsPage extends WizardPage {
 	
@@ -66,7 +66,7 @@ public class ReviewRequirementsPage extends WizardPage {
 		// Set content provider:		
 		featureReqTableViewer.setContentProvider(new ArrayContentProvider());
 		
-		featureReqTableViewer.setInput(((WeightedRequirementsFilterWizard)getWizard()).getFeatureReqList());
+		featureReqTableViewer.setInput(((RequirementsFilterWizard)getWizard()).getFeatureReqList());
 		
 		/**
 		 * Attribute type requirements:
@@ -92,7 +92,7 @@ public class ReviewRequirementsPage extends WizardPage {
 		// Set content provider:		
 		attReqTableViewer.setContentProvider(new ArrayContentProvider());
 				
-		attReqTableViewer.setInput(((WeightedRequirementsFilterWizard)getWizard()).getAttReqList());
+		attReqTableViewer.setInput(((RequirementsFilterWizard)getWizard()).getAttReqList());
 		
 		
 		// Set control of the wizard page:

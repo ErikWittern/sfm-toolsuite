@@ -1,4 +1,4 @@
-package edu.kit.sfm.requirementsfilterweighted.model;
+package edu.kit.sfm.requirementsfilter.model;
 
 import edu.kit.sfm.servicefeaturemodel.FeatureTypes;
 

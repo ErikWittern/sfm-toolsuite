@@ -1,4 +1,4 @@
-package edu.kit.sfm.requirementsfilterweighted.view;
+package edu.kit.sfm.requirementsfilter.view;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
-import edu.kit.sfm.requirementsfilterweighted.controller.WeightedRequirementsExtracter;
-import edu.kit.sfm.requirementsfilterweighted.model.AttributeTypeRequirement;
-import edu.kit.sfm.requirementsfilterweighted.model.FeatureRequirement;
+import edu.kit.sfm.requirementsfilter.controller.RequirementsExtracter;
+import edu.kit.sfm.requirementsfilter.model.AttributeTypeRequirement;
+import edu.kit.sfm.requirementsfilter.model.FeatureRequirement;
 import edu.kit.sfm.servicefeaturemodel.Service;
 
-public class WeightedRequirementsActionDelegate extends ActionDelegate implements IActionDelegate  {
+public class RequirementsFilterActionDelegate extends ActionDelegate implements IActionDelegate  {
 	
 	protected EClass eClass;
 	
-	public WeightedRequirementsActionDelegate() {
+	public RequirementsFilterActionDelegate() {
 		super();
 	}
 	
@@ -42,12 +42,12 @@ public class WeightedRequirementsActionDelegate extends ActionDelegate implement
 		Service service = (Service) resource.getContents().get(0);
 		
 		// Extract requirements from SFM:
-		WeightedRequirementsExtracter ext = new WeightedRequirementsExtracter();
+		RequirementsExtracter ext = new RequirementsExtracter();
 		List<FeatureRequirement> featureReqList = ext.extractFeatureRequirements(service);
 		List<AttributeTypeRequirement> attReqList = ext.extractAttributeTypeRequirements(service);
 		
 		// Initiate wizard:
-		WeightedRequirementsFilterWizard wizard = new WeightedRequirementsFilterWizard(service, featureReqList, attReqList);
+		RequirementsFilterWizard wizard = new RequirementsFilterWizard(service, featureReqList, attReqList);
 		WizardDialog dialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
 		dialog.setPageSize(620, 600);
 		dialog.open();

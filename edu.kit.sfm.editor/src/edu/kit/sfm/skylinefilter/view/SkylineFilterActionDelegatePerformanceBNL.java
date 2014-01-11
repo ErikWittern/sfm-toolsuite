@@ -13,9 +13,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
-import edu.kit.sfm.configuration_set_determination.view.NumberOfPerformanceRunsDialog;
 import edu.kit.sfm.servicefeaturemodel.Service;
 import edu.kit.sfm.skylinefilter.controller.SkylineFilter;
+import edu.kit.sfm.utils.NumberOfPerformanceRunsDialog;
 
 public class SkylineFilterActionDelegatePerformanceBNL extends ActionDelegate{
 	protected EClass eClass;
