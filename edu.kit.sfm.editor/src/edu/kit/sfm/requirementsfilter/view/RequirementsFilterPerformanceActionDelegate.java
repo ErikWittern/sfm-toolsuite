@@ -39,7 +39,6 @@ public class RequirementsFilterPerformanceActionDelegate extends ActionDelegate 
 			try{
 				int runs = Integer.parseInt(dialog.getNumberOfPerformanceRuns());
 				
-				System.out.println("Load model...");
 				// Get current model's service:
 				ResourceSet resourceSet = new ResourceSetImpl();
 				URI resourceURI = EditUIUtil.getURI(PlatformUI.getWorkbench()
@@ -49,7 +48,6 @@ public class RequirementsFilterPerformanceActionDelegate extends ActionDelegate 
 				Service service = (Service) resource.getContents().get(0);
 						
 				// Extract feature requirements:
-				System.out.println("Extract requirements...");
 				RequirementsExtracter ext = new RequirementsExtracter();
 				List<FeatureRequirement> featureReqList = ext.extractFeatureRequirements(service);
 				for(FeatureRequirement req : featureReqList){
