@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" description="Features: 30, Attributes: 20, CTR: 3" id="74c5411c-d5c2-4f5a-a290-c3d28a58f925">
+  <serviceFeatureDiagram name="Service" id="0e51e133-55fb-46ce-a115-1db263dc6182">
+    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Root" id="f0dec4df-3d30-44a4-972b-69f151a895b3">
+      <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature 2" id="e7ab1e75-1093-4c31-9112-0d15d6225d90">
+        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 10" id="d6311fa7-9b3d-4b33-a9af-98319f0e3be5">
+          <attributes instantiationValue="22" attributeType="//@attributeTypes/@attributeTypes.0" id="693e7fdf-b856-4861-9f53-9d688214a11e"/>
+          <groupRelationship xsi:type="servicefeaturemodel:XOR">
+            <optionalServiceFeatures name="Feature 11" id="4ffa315c-3279-4938-85c7-b5e3cbc30c2e"/>
+            <optionalServiceFeatures name="Feature 12" id="c93013f0-0c9f-43c9-a902-9e8b1111415c">
+              <attributes instantiationValue="21" attributeType="//@attributeTypes/@attributeTypes.1" id="12c15f9e-78bc-4277-946d-5c42a5e5040a"/>
+            </optionalServiceFeatures>
+          </groupRelationship>
+        </serviceFeatures>
+        <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature 13" id="f818e821-5303-44c0-925e-4dc47157927e"/>
+      </serviceFeatures>
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 3" id="afce95a5-f620-4de2-9ba7-ee1dd4a11f10">
+        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 4" id="1e5cdfac-371d-4c54-b1dd-5f3b662dfd3a">
+          <attributes instantiationValue="5" attributeType="//@attributeTypes/@attributeTypes.0" id="98f1ade6-f84f-48b4-bf2e-86f0c5604723"/>
+          <groupRelationship xsi:type="servicefeaturemodel:OR">
+            <optionalServiceFeatures name="Feature 5" id="731e5473-221e-4712-8140-6589aa94c0bd">
+              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 7" id="9708587b-8f0a-4613-88b3-2bf21769ed50">
+                <groupRelationship xsi:type="servicefeaturemodel:OR">
+                  <optionalServiceFeatures name="Feature 8" id="b9d1296d-f7ef-4c67-9bbb-23b9205cd3b7"/>
+                  <optionalServiceFeatures name="Feature 9" id="93b48ac4-387c-4eaa-bea3-6605fdd0fd08">
+                    <attributes instantiationValue="47" attributeType="//@attributeTypes/@attributeTypes.0" id="bc031f81-b069-40c1-a1c7-421443d599e0"/>
+                    <attributes instantiationValue="16" attributeType="//@attributeTypes/@attributeTypes.1" id="9b2b273e-6f11-4416-9175-9f3603ac74ed"/>
+                  </optionalServiceFeatures>
+                </groupRelationship>
+                <excludes serviceFeature="//@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@optionalServiceFeatures.0"/>
+              </serviceFeatures>
+            </optionalServiceFeatures>
+            <optionalServiceFeatures name="Feature 6" id="2148417e-33dd-4ec9-ac95-44cce2d0e5b4"/>
+          </groupRelationship>
+          <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature 14" id="9242e514-8172-464f-8a95-e0051a8281ad">
+            <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.0" id="917f7730-4576-4789-9d98-0864958ac241"/>
+          </serviceFeatures>
+          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 15" id="56b967a9-0395-486a-8c09-d7ddf5455585">
+            <groupRelationship xsi:type="servicefeaturemodel:OR">
+              <optionalServiceFeatures name="Feature 16" id="41ba923a-ab7a-4669-a69b-5ccf1537b8e4"/>
+              <optionalServiceFeatures name="Feature 17" id="0eeb7c38-7521-461e-a453-f17ff05bc1c2">
+                <attributes instantiationValue="48" attributeType="//@attributeTypes/@attributeTypes.1" id="d9d3da9f-3862-49a6-9ef6-bbf2cd01238c"/>
+              </optionalServiceFeatures>
+            </groupRelationship>
+            <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 22" id="bac55cdd-5de5-4a91-9555-41ffca6277c4">
+              <attributes instantiationValue="70" attributeType="//@attributeTypes/@attributeTypes.1" id="84116ffd-2761-475b-b8bd-e91c95480ae0"/>
+              <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                <optionalServiceFeatures name="Feature 23" id="585bd946-2ee5-40ee-8b25-0d6c2786d7f7"/>
+                <optionalServiceFeatures name="Feature 24" id="8fb08261-febe-4458-aede-2bc9ca2a3e83">
+                  <attributes instantiationValue="53" attributeType="//@attributeTypes/@attributeTypes.1" id="e93a693e-c2fc-463a-bf4e-f2544670794c"/>
+                </optionalServiceFeatures>
+                <optionalServiceFeatures name="Feature 25" id="99d67b73-9432-41e1-bcc5-335709f65cf9"/>
+              </groupRelationship>
+            </serviceFeatures>
+          </serviceFeatures>
+          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 18" id="705456f7-e725-44e0-a32a-94aea3b7609f">
+            <groupRelationship xsi:type="servicefeaturemodel:OR">
+              <optionalServiceFeatures name="Feature 19" id="ae75f3bd-6d05-48e0-8804-eaad94215fab"/>
+              <optionalServiceFeatures name="Feature 20" id="36bb5c56-317f-4358-a44a-06f99b44ebf8"/>
+              <optionalServiceFeatures name="Feature 21" id="13818500-7fbc-4b2c-a0a4-6184ded57995">
+                <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature 26" id="fd33af21-ee98-4a7d-8bc8-0af347f71a28">
+                  <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                    <optionalServiceFeatures name="Feature 27" id="16784cb4-983f-41b9-a8d9-987927b7f888"/>
+                    <optionalServiceFeatures name="Feature 28" id="686085c9-8754-4194-8a33-d5abee835464"/>
+                  </groupRelationship>
+                </serviceFeatures>
+                <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature 29" id="bf66a5cb-f1df-4725-9766-3f74897d2e5d"/>
+                <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature 30" id="a0627bd4-2853-40b9-b348-e8a903b0a2ff">
+                  <attributes instantiationValue="60" attributeType="//@attributeTypes/@attributeTypes.0" id="3079d4c4-2ba8-400c-97b2-a90e056caf53"/>
+                </serviceFeatures>
+              </optionalServiceFeatures>
+            </groupRelationship>
+          </serviceFeatures>
+        </serviceFeatures>
+      </serviceFeatures>
+    </serviceFeatures>
+  </serviceFeatureDiagram>
+  <configurations/>
+  <attributeTypes>
+    <attributeTypes name="Att Type 0"/>
+    <attributeTypes name="Att Type 1"/>
+  </attributeTypes>
+</servicefeaturemodel:Service>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" id="58" name="GR01Demo">
+  <serviceFeatureDiagram name="GR01Demo" id="6ffeefc0-bfef-44cd-9be9-627b450c14c9">
+    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Process" id="967c3fea-8282-493a-9c96-bdfa4b22204f">
+      <groupRelationship xsi:type="servicefeaturemodel:XOR">
+        <optionalServiceFeatures name="Alternative1" id="f23d475b-ccd6-40b5-b999-063ee7b35134">
+          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Call CSC" id="d37d2759-64bb-42f0-a6c2-a4afed38028e">
+            <attributes instantiationValue="5" attributeType="//@attributeTypes/@attributeTypes.0" id="8fd51640-33a3-4c0e-bb37-a233f67dc912"/>
+            <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.1" id="4cf7e37d-cbd7-4a42-84d9-83ef7e37b913"/>
+            <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2" id="52d55cc6-f96a-4d9b-8ff6-1c73686de0af"/>
+            <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.3" id="5f595b5e-9724-4048-b1c9-9f982909cd8c"/>
+            <requires serviceFeature="//@serviceFeatureDiagram/@serviceFeatures.1"/>
+          </serviceFeatures>
+          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Fix Appointment" id="e3a895cf-d470-479e-85c4-ad05b4117020"/>
+        </optionalServiceFeatures>
+        <optionalServiceFeatures name="Alternative2" id="abeb33be-6f7c-4e7e-a6a6-98aaad1b202b">
+          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Take token and wait in line" id="50c9b5e0-d033-48e2-9150-d3bd3405f0ea">
+            <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.0" id="e706f4ac-76ba-4861-b867-5045f204dafc"/>
+            <attributes instantiationValue="10" attributeType="//@attributeTypes/@attributeTypes.1" id="da6f9043-dea9-47d7-b731-d1a91e0a421c"/>
+          </serviceFeatures>
+        </optionalServiceFeatures>
+      </groupRelationship>
+    </serviceFeatures>
+    <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Front desk employee" id="ff47eced-33eb-4361-96a6-953b0ad3e398">
+      <attributes instantiationValue="5" attributeType="//@attributeTypes/@attributeTypes.0" id="10f0917d-5859-4d18-97a4-6d3baac10190"/>
+    </serviceFeatures>
+  </serviceFeatureDiagram>
+  <configurations>
+    <configurations name="1" id="1" serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.1/@serviceFeatures.0">
+      <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.0" id="cc3245ad-a190-44c9-aa49-7c9f5d719d0a"/>
+      <attributes instantiationValue="10" attributeType="//@attributeTypes/@attributeTypes.1" id="a7ab39c5-a97d-4b31-88f6-4da99e7a443c"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.2" id="0a05253f-5f18-4312-bb33-34a1500cafaa"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.3" id="c6cc102d-3187-453f-a759-8888b8361c21"/>
+    </configurations>
+    <configurations name="2" id="2" serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.1/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.1">
+      <attributes instantiationValue="11" attributeType="//@attributeTypes/@attributeTypes.0" id="a4e91e7d-eb12-40e9-bb37-c8c0f27e909e"/>
+      <attributes instantiationValue="10" attributeType="//@attributeTypes/@attributeTypes.1" id="2816a4f9-273c-48c0-9c0d-81d97a669b90"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.2" id="fe43e064-4813-45c4-b991-6b2462b38920"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.3" id="63ffa9b9-4897-431e-893d-598818bea2c3"/>
+    </configurations>
+    <configurations name="3" id="3" serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@groupRelationship/@optionalServiceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.1">
+      <attributes instantiationValue="10" attributeType="//@attributeTypes/@attributeTypes.0" id="c66a21fe-6dc0-44be-8a73-b651f6a3b3a7"/>
+      <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.1" id="ddb955e1-fdef-4fa3-9d0d-140ef017dd8b"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2" id="4c7f3356-073a-448a-96c8-1a88b485644a"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.3" id="f7f569a6-c2a8-4430-8c12-d9d2940a434d"/>
+    </configurations>
+  </configurations>
+  <attributeTypes>
+    <attributeTypes name="Cost" scaleOrder="LowerIsBetter" toBeEvaluated="true"/>
+    <attributeTypes name="Throughput" toBeEvaluated="true"/>
+    <attributeTypes name="Home access" domain="Boolean" aggregationRule="AtLeastOnce" scaleOrder="ExistenceIsBetter" toBeEvaluated="true" customAttributeTypePriority="3"/>
+    <attributeTypes name="Personal assistance" domain="Boolean" aggregationRule="AtLeastOnce" scaleOrder="ExistenceIsBetter" toBeEvaluated="true" customAttributeTypePriority="3"/>
+  </attributeTypes>
+</servicefeaturemodel:Service>

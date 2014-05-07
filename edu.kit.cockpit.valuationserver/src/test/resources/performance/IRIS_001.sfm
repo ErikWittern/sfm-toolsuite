@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ASCII"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" id="102" name="IRIS_001">
+  <serviceFeatureDiagram name="IRIS_001" id="105ae978-1e74-44ee-ad69-bd7921a5fc5c">
+    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Service requests" id="b4479a74-1ada-4c8e-af1e-0c92380ebedf">
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Rispondere al problema segnalato su IRIS" id="de7cf3cc-6f2e-4ad6-9a31-40614176ec7e">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <optionalServiceFeatures name="Segnalazione IRIS" id="aa1120d5-e0da-4cfa-a6ee-d02ba3ce9a36">
+            <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Quale strumento uso per inserire ia segnalazione? ACPR415" associatedGSMElement="ACPR415" id="bffae222-ab27-44dd-9307-323c907fda89">
+              <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                <optionalServiceFeatures name="Alternative 0" id="970f91d0-5113-4bbd-a366-e9efe0af1386">
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Utilizzo di pc personale" associatedGSMElement="ACPR416" id="9d0a19a9-7c02-45b5-a6bb-aff06e77bcaf"/>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="E' di competenza del mio ufficio? ACPR411" associatedGSMElement="ACPR411" id="f0cb7506-7871-4eec-b78e-047d4e55b2d3">
+                    <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                      <optionalServiceFeatures name="Alternative 0" id="74902b3a-dae3-4342-89a8-e08bb09062f6">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Presa &quot;in carico&quot; della segnalazione" associatedGSMElement="ACPR43" id="2fb014b1-6f50-4f95-ada8-af44667f7000"/>
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Verifica del problema ACPR44" associatedGSMElement="ACPR44" id="3095fdf5-f1d8-421d-9854-3ffbe20469c1">
+                          <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                            <optionalServiceFeatures name="Alternative 0" id="4d59e4ac-1f99-4ab7-94a6-94b689e4cd11">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Il problema pu&#xf2; essere risolto? ACPR410" associatedGSMElement="ACPR410" id="63cbba84-242a-4342-b8b4-43c37d41a48f">
+                                <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                  <optionalServiceFeatures name="Alternative 0" id="883a777a-b2e1-443f-b541-b88a63c562e4">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Attivo la soluzione" associatedGSMElement="ACPR41" id="1fe83c36-9107-48f5-ba38-d6532bad4cae"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoro l'intervento? ACPR421" associatedGSMElement="ACPR421" id="616e5e24-43f0-459b-89c5-4a87f69e58b6">
+                                      <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                        <optionalServiceFeatures name="Alternative 0" id="e61dc1ad-4b1e-453d-b970-942ae3d73981">
+                                          <attributes instantiationValue="25" attributeType="//@attributeTypes/@attributeTypes.0" id="f756ff17-1416-408f-b18a-90f471ba98c3"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.1" id="37f745fe-b40b-495a-a6f7-66219dd41b55"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.2" id="895b5fbc-9cc1-471d-b95b-7653fa1ddeb5"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.3" id="b5b7657e-52ad-4946-92b9-d4788c0d3bdc"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="5d97d89c-49a1-4dd2-8f0c-77e91b6c8fc4"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="9b5f6a57-441c-4578-b616-b2c3d0ea6cef"/>
+                                        </optionalServiceFeatures>
+                                        <optionalServiceFeatures name="Alternative 1" id="83ce5a63-cf37-4176-88d6-82dae7f8a827">
+                                          <attributes instantiationValue="15" attributeType="//@attributeTypes/@attributeTypes.0" id="d4f3eae5-ce05-4a40-baf3-3a2dfe199b1c"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.1" id="1141ea64-8698-4257-8321-26a9a86ca404"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.2" id="36b56c4a-8538-41de-965c-a226189ac3c7"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.3" id="63e7d766-01d7-4917-bb3d-135d5fc881fe"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoraggio dell'intervento" associatedGSMElement="ACPR422" id="ae4b9e83-fdb5-4ebf-a9e1-4ed20108d92a"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Ricevuto feedback di Problema Risolto" associatedGSMElement="ACPR423" id="e73437ac-20fd-447d-8755-aaf8e0d8a80b"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="7c3f178e-e33f-42be-9afb-eaf4c5f04aa6"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="dfa92bbf-c812-4a32-ba91-cf14650d1762"/>
+                                        </optionalServiceFeatures>
+                                      </groupRelationship>
+                                    </serviceFeatures>
+                                  </optionalServiceFeatures>
+                                  <optionalServiceFeatures name="Alternative 1" id="fa353207-da79-4461-aaeb-e482376bed22">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="8cfded1b-7faa-44f9-ab12-6f9570bf5201"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="0fc4a6b3-8c81-4fd0-9734-34010cbe8ff6"/>
+                                  </optionalServiceFeatures>
+                                </groupRelationship>
+                              </serviceFeatures>
+                            </optionalServiceFeatures>
+                            <optionalServiceFeatures name="Alternative 1" id="9bade0ad-5111-4553-980f-f4ae0259c897">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="cdfcd0ec-5430-44ef-b4cd-fb9c919e6d41"/>
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="1fdca4ea-e58c-43c0-8c1c-b797b961a7a5"/>
+                            </optionalServiceFeatures>
+                          </groupRelationship>
+                        </serviceFeatures>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 1" id="7e51c1f6-ee81-4eb5-bfa8-a65726ae3ee7">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Riassegnazione della segnalazione  ad altro Ufficio di Staff IRIS" associatedGSMElement="ACPR48" id="3b3e4975-f8f5-4b68-8a5d-ee09b0c8e224"/>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 2" id="84f3593e-bf1c-4762-b73b-defbcd9d3a24">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Generazione una nuova segnalazione di competenza di altro impiegato di Staff IRIS" associatedGSMElement="ACPR47" id="b1056b3a-a9b8-423f-87ba-4e4ca7e4d84b"/>
+                      </optionalServiceFeatures>
+                    </groupRelationship>
+                  </serviceFeatures>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Ricezione della segnalazione" associatedGSMElement="ACPR424" id="adeccbcf-f28a-424a-b6e5-05a824ca328e"/>
+                </optionalServiceFeatures>
+                <optionalServiceFeatures name="Alternative 1" id="5659afb0-435c-4bd8-999e-48ea9b2ca868">
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Utilizzo di dispositivo in mobilit&#xe0; (smatphone, ecc.)" associatedGSMElement="ACPR417" id="01193903-e7c7-46d8-b4db-874ee23c71d0"/>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="E' di competenza del mio ufficio? ACPR411" associatedGSMElement="ACPR411" id="25ad3b2c-a8eb-453a-b357-b58783081b69">
+                    <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                      <optionalServiceFeatures name="Alternative 0" id="2c2b4d6b-fc1c-490a-82a7-c6a7fc6b8818">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Presa &quot;in carico&quot; della segnalazione" associatedGSMElement="ACPR43" id="e1e44a74-b4d5-42b1-be79-4d7bd5514ceb"/>
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Verifica del problema ACPR44" associatedGSMElement="ACPR44" id="c3a529ac-df14-424c-be0a-da87b05087f3">
+                          <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                            <optionalServiceFeatures name="Alternative 0" id="c1086b83-024f-43d7-956b-a5ac179070bf">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Il problema pu&#xf2; essere risolto? ACPR410" associatedGSMElement="ACPR410" id="a704e50f-1959-40d5-9005-172a5a65b323">
+                                <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                  <optionalServiceFeatures name="Alternative 0" id="06a43fb3-e65c-413b-8e0f-2465a0524c6f">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Attivo la soluzione" associatedGSMElement="ACPR41" id="8aebd4c9-6768-4592-9f67-753ded948109"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoro l'intervento? ACPR421" associatedGSMElement="ACPR421" id="57dbbabc-5ea3-4239-ab3a-59a4d5332fd3">
+                                      <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                        <optionalServiceFeatures name="Alternative 0" id="a2f5d0db-a679-4c4b-9d6c-cb5b0f9690c4">
+                                          <attributes instantiationValue="10" attributeType="//@attributeTypes/@attributeTypes.0" id="252bc7aa-fc23-4184-856e-43bcf02445b2"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.1" id="23363cd2-d32c-4c8c-8b8f-08f4855eff5a"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.2" id="b7c17c06-4f58-4214-97d0-8595b51e095c"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.3" id="50542020-329b-4de1-96dd-a2ed95222470"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="1b562bc0-bbf3-4464-8475-b5b41d4d2f38"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="a21551eb-f272-4ad5-9f3b-3fd99e40302a"/>
+                                        </optionalServiceFeatures>
+                                        <optionalServiceFeatures name="Alternative 1" id="cfa9b8ed-5ded-4ab0-8902-59cfd7f9aac8">
+                                          <attributes instantiationValue="5" attributeType="//@attributeTypes/@attributeTypes.0" id="a691d981-ba9e-4c8d-a170-68742909ea59"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.1" id="4980157d-4caf-433e-bc49-8962d6ab22d7"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.2" id="9be64026-95bf-454a-a5ac-a47e2383f6bd"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.3" id="149ec8a9-d7ed-4ce6-ae9b-6cecc21406a8"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoraggio dell'intervento" associatedGSMElement="ACPR422" id="eccca33e-7203-4e2a-b628-601a0eb995fd"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Ricevuto feedback di Problema Risolto" associatedGSMElement="ACPR423" id="97cff8c3-5e41-454e-83a6-81b20f527158"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="a328963e-f28e-4590-a213-e87369a8cc8b"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="f221437a-295f-4ebf-98cc-e85623a876aa"/>
+                                        </optionalServiceFeatures>
+                                      </groupRelationship>
+                                    </serviceFeatures>
+                                  </optionalServiceFeatures>
+                                  <optionalServiceFeatures name="Alternative 1" id="e37d9b43-fdef-453f-9e3b-a9863af95789">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="7359384f-3120-4637-891d-6cd01a25ddc9"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="8350fd2d-cf73-425f-8a5c-ede4697de3c3"/>
+                                  </optionalServiceFeatures>
+                                </groupRelationship>
+                              </serviceFeatures>
+                            </optionalServiceFeatures>
+                            <optionalServiceFeatures name="Alternative 1" id="d0bccab6-2855-476c-a10c-8cd5dcb2b0d1">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="e149d4c4-fb45-47a6-a2d0-7d9569ec3247"/>
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="86c100ed-c3dc-4fe6-91e8-655e63a959b1"/>
+                            </optionalServiceFeatures>
+                          </groupRelationship>
+                        </serviceFeatures>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 1" id="61e9fb7d-b287-4353-9d98-4f79b814c841">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Riassegnazione della segnalazione  ad altro Ufficio di Staff IRIS" associatedGSMElement="ACPR48" id="0bf953db-d50c-4ac4-ac8c-2a1bfa1ce087"/>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 2" id="16ca071c-f336-468a-8df0-87f60c2db244">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Generazione una nuova segnalazione di competenza di altro impiegato di Staff IRIS" associatedGSMElement="ACPR47" id="f6bec8de-1890-49cf-bb45-0c282e462320"/>
+                      </optionalServiceFeatures>
+                    </groupRelationship>
+                  </serviceFeatures>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Ricezione della segnalazione" associatedGSMElement="ACPR424" id="deee4741-c55d-400b-9054-5cdc315ccc9b"/>
+                </optionalServiceFeatures>
+                <optionalServiceFeatures name="Alternative 2" id="941091a6-ce68-4453-8c50-92283cd7bc97">
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Utilizzo di totem pubblici" associatedGSMElement="ACPR418" id="43dc9766-651f-4c94-beaf-a7319a8b29d2"/>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="E' di competenza del mio ufficio? ACPR411" associatedGSMElement="ACPR411" id="1d996395-04a8-496b-a50d-8353eee8e704">
+                    <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                      <optionalServiceFeatures name="Alternative 0" id="a75b9f9f-fd2e-4222-b901-7aa9257ae400">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Presa &quot;in carico&quot; della segnalazione" associatedGSMElement="ACPR43" id="87f76161-7cc5-4f49-8111-898ea51a3f1f"/>
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Verifica del problema ACPR44" associatedGSMElement="ACPR44" id="e6b561bd-4686-4434-ad9c-040fdbc8a74e">
+                          <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                            <optionalServiceFeatures name="Alternative 0" id="acf4d817-9fc9-40af-abe2-50e8bd12aa45">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Il problema pu&#xf2; essere risolto? ACPR410" associatedGSMElement="ACPR410" id="a5fbd040-472c-4ec3-ba03-41afa407edf4">
+                                <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                  <optionalServiceFeatures name="Alternative 0" id="8cd98867-28b7-4012-bebf-d95d5e34a920">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Attivo la soluzione" associatedGSMElement="ACPR41" id="acd7f78a-630e-4f22-b900-3be383b1c574"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoro l'intervento? ACPR421" associatedGSMElement="ACPR421" id="41acf8d4-7827-41fa-8f5a-2433e97573df">
+                                      <groupRelationship xsi:type="servicefeaturemodel:XOR">
+                                        <optionalServiceFeatures name="Alternative 0" id="397025ca-7101-4e90-b011-9e9d1b8d0bdb">
+                                          <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.0" id="1205e82a-f33f-4377-81cf-7550c39c0476"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.1" id="362ca3fd-9a25-4491-af40-64a135721082"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.2" id="a7813f12-3ccf-40f6-896f-577a4690a61e"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.3" id="2a2c0d58-919e-42d0-9eb3-40b960ae178d"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="7e4772bb-212f-40ab-9052-3c5e6ed922b5"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="bb657f0a-65d0-477e-814b-4b41df7b7c75"/>
+                                        </optionalServiceFeatures>
+                                        <optionalServiceFeatures name="Alternative 1" id="ece88c54-b8ef-4ba8-9a37-aa9ec4d62d59">
+                                          <attributes instantiationValue="1" attributeType="//@attributeTypes/@attributeTypes.0" id="b76adcf9-2642-42e9-bff5-c87171ea714f"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.1" id="f7b9fc20-8254-4c6d-a020-2845b8bf67ce"/>
+                                          <attributes instantiationValue="3" attributeType="//@attributeTypes/@attributeTypes.2" id="9971a38e-7224-457f-8acb-0f790306019b"/>
+                                          <attributes instantiationValue="9" attributeType="//@attributeTypes/@attributeTypes.3" id="69f19ec8-c2b2-4c09-bc50-13297a5da8c1"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Monitoraggio dell'intervento" associatedGSMElement="ACPR422" id="d53ff0a4-ddb1-4c48-8424-2f75ceedbed8"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Ricevuto feedback di Problema Risolto" associatedGSMElement="ACPR423" id="5a289778-969a-4f16-a16a-26b154107d36"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="4abcc92b-61a9-4e58-b69d-4d1e93eef685"/>
+                                          <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="9045ac3b-5dde-435a-bb8e-ec9149323e18"/>
+                                        </optionalServiceFeatures>
+                                      </groupRelationship>
+                                    </serviceFeatures>
+                                  </optionalServiceFeatures>
+                                  <optionalServiceFeatures name="Alternative 1" id="019eaa6d-47b7-422a-80a4-a8bb117d3328">
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="2283ab5d-6448-4000-81a0-836492cca930"/>
+                                    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="672aa3f6-677c-44f2-bc71-32a6c8ce0dec"/>
+                                  </optionalServiceFeatures>
+                                </groupRelationship>
+                              </serviceFeatures>
+                            </optionalServiceFeatures>
+                            <optionalServiceFeatures name="Alternative 1" id="76077a22-d4e7-41a9-a793-028f427c9189">
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Risposta al cittadino e conclusione della segnalazione" associatedGSMElement="ACPR49" id="d9c91dbd-cfb7-4a7a-8674-234d7a7e95db"/>
+                              <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Conclusione" associatedGSMElement="ACPR419" id="c604b172-e4c8-40fa-9d87-13c401fea04a"/>
+                            </optionalServiceFeatures>
+                          </groupRelationship>
+                        </serviceFeatures>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 1" id="812d8712-f591-4b9c-b6f2-1fefea1a0069">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Riassegnazione della segnalazione  ad altro Ufficio di Staff IRIS" associatedGSMElement="ACPR48" id="08478e22-3ea1-460a-905d-fe9c0322e26e"/>
+                      </optionalServiceFeatures>
+                      <optionalServiceFeatures name="Alternative 2" id="62b08d5d-a679-4e09-9a6c-a88d1fbe6d76">
+                        <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Generazione una nuova segnalazione di competenza di altro impiegato di Staff IRIS" associatedGSMElement="ACPR47" id="e8cf80fd-2a09-4a9b-a616-4542e1edd96c"/>
+                      </optionalServiceFeatures>
+                    </groupRelationship>
+                  </serviceFeatures>
+                  <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processo di conferma della Ricezione della segnalazione" associatedGSMElement="ACPR424" id="88e6057e-b1a9-4dd6-8e60-fc63bd446e77"/>
+                </optionalServiceFeatures>
+              </groupRelationship>
+            </serviceFeatures>
+          </optionalServiceFeatures>
+        </groupRelationship>
+      </serviceFeatures>
+    </serviceFeatures>
+  </serviceFeatureDiagram>
+  <configurations>
+  </configurations>
+  <attributeTypes>
+    <attributeTypes name="Contenere i costi per la Pubblica Amministrazione" toBeEvaluated="true" description="Contenere i costi per la Pubblica Amministrazione"/>
+    <attributeTypes name="Ricevere notifiche sull'avanzamento lavori" toBeEvaluated="true" description="Ricevere notifiche sull'avanzamento lavori"/>
+    <attributeTypes name="Inserire segnalazione da dispositivi mobili (smartphone, ecc.)" toBeEvaluated="true" description="Inserire segnalazione da dispositivi mobili (smartphone, ecc.)"/>
+    <attributeTypes name="Inserire segnalazione da totem pubblici" toBeEvaluated="true" description="Inserire segnalazione da totem pubblici"/>
+  </attributeTypes>
+</servicefeaturemodel:Service>

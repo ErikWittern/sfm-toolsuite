@@ -1,0 +1,279 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.kit.cockpit</groupId>
+	<version>1.0</version>
+	<artifactId>valuationserver</artifactId>
+	<packaging>war</packaging>
+	<name>edu.kit.cockpit.valuationserver</name>
+
+	<properties>
+		<appsrv.context>/valuation-server</appsrv.context>
+		<appsrv.containerId>tomcat6x</appsrv.containerId>
+		<appsrv.usr>admin</appsrv.usr>
+		<!-- local config -->
+		<!-- <appsrv.pwd>cockpit</appsrv.pwd> -->
+		<!-- <appsrv.hostname>localhost</appsrv.hostname> -->
+		<!-- <appsrv.port>8080</appsrv.port> -->
+		<!-- remote config -->
+		<appsrv.pwd>cockpit2011eOrg</appsrv.pwd>
+		<appsrv.hostname>eorg-cockpit.aifb.kit.edu</appsrv.hostname>
+		<appsrv.port>80</appsrv.port>
+	</properties>
+
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>openjpa-maven-plugin</artifactId>
+				<version>1.2</version>
+				<configuration>
+					<includes>**/entities/*.class</includes>
+					<excludes>**/entities/EvaluationE$EvaluationState.class</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>enhancer</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0.3</version>
+				<configuration>
+					<container>
+						<containerId>${appsrv.containerId}</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+						<properties>
+							<cargo.hostname>${appsrv.hostname}</cargo.hostname>
+							<cargo.servlet.port>${appsrv.port}</cargo.servlet.port>
+							<cargo.tomcat.manager.url>http://${appsrv.hostname}:${appsrv.port}/manager</cargo.tomcat.manager.url>
+							<cargo.remote.username>${appsrv.usr}</cargo.remote.username>
+							<cargo.remote.password>${appsrv.pwd}</cargo.remote.password>
+						</properties>
+					</configuration>
+					<deployer>
+						<type>remote</type>
+						<deployables>
+							<deployable>
+								<groupId>edu.kit.cockpit</groupId>
+								<artifactId>valuationserver</artifactId>
+								<type>war</type>
+								<properties>
+									<context>${appsrv.context}</context>
+								</properties>
+							</deployable>
+						</deployables>
+					</deployer>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.8.1</version>
+				<configuration>
+					<extension>true</extension>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<!-- <configuration> -->
+						<!-- <classifier>kit</classifier> -->
+						<!-- <includes> -->
+						<!-- <include>**/kit/**</include> -->
+						<!-- <exclude>**/eu/**</exclude> -->
+						<!-- </includes> -->
+						<!-- </configuration> -->
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											openjpa-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.2,)
+										</versionRange>
+										<goals>
+											<goal>enhance</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.openjpa</groupId>
+			<artifactId>openjpa</artifactId>
+			<version>1.2.2</version>
+			<!-- Tomcat: Ohne die folgende Zeile, WebLogic: Eventuell mit folgender 
+				Zeile: <scope>provided</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.7.1.1</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>javaee</groupId> -->
+		<!-- <artifactId>javaee-api</artifactId> -->
+		<!-- <version>5</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.1.5.1</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.1.5.1</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.grizzly</groupId>
+			<artifactId>grizzly-servlet-webserver</artifactId>
+			<version>1.9.18</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.1.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse</groupId>
+			<artifactId>emf</artifactId>
+			<version>2.3.0-v200706262000</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.emf.ecore</groupId>
+			<artifactId>editor</artifactId>
+			<version>2.3.0-v200706262000</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.kit.cockpit</groupId>
+			<artifactId>sfmdesigner</artifactId>
+			<version>0.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.mukis</groupId>
+			<artifactId>de.mukis.jama</artifactId>
+			<version>2.0.0.M1</version>
+		</dependency>
+		
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+</project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kit.edu/cockpit/valuationserver/rest/messages"
+	xmlns="http://kit.edu/cockpit/valuationserver/rest/messages"
+	elementFormDefault="qualified">
+	<xs:element name="Configuration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="VoteUrl" type="xs:string" minOccurs="1"
+					maxOccurs="1" />
+				<xs:element name="ConfigName" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="ConfigId" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="ConfigDescription" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="ConfigurationAttributes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FeatureAttribute" minOccurs="1"
+								maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="FeatureAttributeType" type="xs:string"
+										use="required" />
+									<xs:attribute name="FeatureAttributeValue" type="xs:string"
+										use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ConfigurationRanking">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="RankedConfiguration" minOccurs="1"
+								maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ConfigurationId" type="xs:string"
+										use="required" />
+									<xs:attribute name="PreferenceValue" type="xs:float"
+										use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

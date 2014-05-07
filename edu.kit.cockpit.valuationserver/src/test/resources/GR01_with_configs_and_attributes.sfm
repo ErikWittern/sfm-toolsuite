@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" description="GR01 is the best service around - isn't it?" id="4710ff47-4fc4-461a-bccd-6a45bd4974f4" name="GR01">
+  <serviceFeatureDiagram>
+    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processes">
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Registration / queuing">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <serviceFeatures name="CSC to order requests">
+            <attributes instantiationValue="xx" attributeType="//@attributeTypes/@attributeTypes.0"/>
+            <attributes instantiationValue="xx" attributeType="//@attributeTypes/@attributeTypes.1"/>
+          </serviceFeatures>
+          <serviceFeatures name="Take the token number and wait in line">
+            <attributes instantiationValue="yy" attributeType="//@attributeTypes/@attributeTypes.0"/>
+            <attributes instantiationValue="yy" attributeType="//@attributeTypes/@attributeTypes.1"/>
+          </serviceFeatures>
+        </groupRelationship>
+      </serviceFeatures>
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Identification">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <serviceFeatures name="SS ID based identification"/>
+          <serviceFeatures name="Social security card based identification">
+            <requires serviceFeature="//@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.1"/>
+          </serviceFeatures>
+        </groupRelationship>
+      </serviceFeatures>
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Print records">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <serviceFeatures name="Print insurance record"/>
+          <serviceFeatures name="Print insurance record &amp; work experience certificate"/>
+        </groupRelationship>
+      </serviceFeatures>
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Signing and stemping">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <serviceFeatures name="Sign and stemp by supervisor"/>
+          <serviceFeatures name="Sign and stemp on behalf of supervisor"/>
+        </groupRelationship>
+      </serviceFeatures>
+      <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Hand over the record to citizen">
+        <groupRelationship xsi:type="servicefeaturemodel:XOR">
+          <serviceFeatures name="Hand over the record to citizen"/>
+          <serviceFeatures name="Hand over the record and SS card to citizen"/>
+        </groupRelationship>
+      </serviceFeatures>
+    </serviceFeatures>
+  </serviceFeatureDiagram>
+  <configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="120" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="5" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="20" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="150" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="6" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="18" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="110" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="23" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="16" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="113" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="20" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="18" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="170" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="25" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="23" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="90" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="15" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="19" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="95" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="16" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="true" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="25" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+    <configurations serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.0/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.1/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.2/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.3/@groupRelationship/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.0/@serviceFeatures.4/@groupRelationship/@serviceFeatures.0">
+      <attributes instantiationValue="116" attributeType="//@attributeTypes/@attributeTypes.0"/>
+      <attributes instantiationValue="21" attributeType="//@attributeTypes/@attributeTypes.1"/>
+      <attributes instantiationValue="false" attributeType="//@attributeTypes/@attributeTypes.2"/>
+      <attributes instantiationValue="26" attributeType="//@attributeTypes/@attributeTypes.3"/>
+    </configurations>
+  </configurations>
+  <attributeTypes>
+    <attributeTypes name="Cost" scaleOrder="LowerIsBetter" toBeEvaluated="true" description="The cost of a feature."/>
+    <attributeTypes name="Throughput" toBeEvaluated="true" description="The throughput of a feature."/>
+    <attributeTypes name="Sends mail" domain="Boolean" aggregationRule="AtLeastOnce" scaleOrder="ExistenceIsBetter" toBeEvaluated="true" description="" customAttributeTypePriority="5"/>
+    <attributeTypes name="Processing time" scaleOrder="LowerIsBetter" toBeEvaluated="true" description=""/>
+  </attributeTypes>
+</servicefeaturemodel:Service>

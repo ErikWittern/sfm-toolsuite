@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kit.edu/cockpit/valuationserver/rest/messages"
+	xmlns="http://kit.edu/cockpit/valuationserver/rest/messages"
+	elementFormDefault="qualified">
+	<xs:element name="Evaluations">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EvaluationEntry" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="EvaluationId" type="xs:string" use="required" />
+						<xs:attribute name="EvaluationUrl" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

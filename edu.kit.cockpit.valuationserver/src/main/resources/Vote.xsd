@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://kit.edu/cockpit/valuationserver/rest/messages"
+	xmlns="http://kit.edu/cockpit/valuationserver/rest/messages"
+	elementFormDefault="qualified">
+
+	<xs:element name="Vote">
+		<xs:complexType>
+			<xs:sequence>
+
+				<!-- generic vote info -->
+
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="VoteUrl" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="VoteId" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="EvaluationUrl" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="StakeholderGroup" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<!-- use this as appropriate -->
+				<xs:element name="Description" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="ConfigurationUrl" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<!-- set to default when POSTing new vote -->
+				<xs:element name="Aggregation" type="xs:boolean"
+					minOccurs="1" maxOccurs="1" default="false" />
+
+				<!-- specific info related to single vote -->
+
+				<!-- specify this when POSTing new vote -->
+				<xs:element name="VoterId" type="xs:string" minOccurs="1"
+					maxOccurs="1" />
+
+				<!-- specific info related to aggregated vote -->
+
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="AggregationType" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<!-- skip this when POSTing new vote -->
+				<xs:element name="ClusterId" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+
+				<xs:element name="Preference" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="FeatureAttributeType1" type="xs:string"
+							use="required" />
+						<xs:attribute name="FeatureAttributeType2" type="xs:string"
+							use="required" />
+						<xs:attribute name="pref1over2" type="xs:int" use="required" />
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

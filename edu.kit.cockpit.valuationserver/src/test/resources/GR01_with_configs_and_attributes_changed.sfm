@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" description="GR01 is the best service around - now it has been changed" id="4710ff47-4fc4-461a-bccd-6a45bd4974f4" name="GR01">
+  <representedBy>
+    <containsFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Processes">
+      <decomposesInto xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Registration / queuing">
+        <containsVariant xsi:type="servicefeaturemodel:XOR">
+          <contains name="CSC to order requests">
+            <describedBy instantiationValue="xx" ofAttributeType="//@has/@contains.0"/>
+            <describedBy instantiationValue="xx" ofAttributeType="//@has/@contains.1"/>
+          </contains>
+          <contains name="Take the token number and wait in line">
+            <describedBy instantiationValue="yy" ofAttributeType="//@has/@contains.0"/>
+            <describedBy instantiationValue="yy" ofAttributeType="//@has/@contains.1"/>
+          </contains>
+        </containsVariant>
+      </decomposesInto>
+      <decomposesInto xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Identification">
+        <containsVariant xsi:type="servicefeaturemodel:XOR">
+          <contains name="SS ID based identification"/>
+          <contains name="Social security card based identification">
+            <containsRequires requiresServiceFeature="//@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.1"/>
+          </contains>
+        </containsVariant>
+      </decomposesInto>
+      <decomposesInto xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Print records">
+        <containsVariant xsi:type="servicefeaturemodel:XOR">
+          <contains name="Print insurance record"/>
+          <contains name="Print insurance record &amp; work experience certificate"/>
+        </containsVariant>
+      </decomposesInto>
+      <decomposesInto xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Signing and stemping">
+        <containsVariant xsi:type="servicefeaturemodel:XOR">
+          <contains name="Sign and stemp by supervisor"/>
+          <contains name="Sign and stemp on behalf of supervisor"/>
+        </containsVariant>
+      </decomposesInto>
+      <decomposesInto xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Hand over the record to citizen">
+        <containsVariant xsi:type="servicefeaturemodel:XOR">
+          <contains name="Hand over the record to citizen"/>
+          <contains name="Hand over the record and SS card to citizen"/>
+        </containsVariant>
+      </decomposesInto>
+    </containsFeatures>
+  </representedBy>
+  <enables>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="125" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="5" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="true" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="23" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="140" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="5" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="true" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="19" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="110" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="23" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="false" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="16" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="113" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="26" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="true" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="18" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="170" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="23" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="true" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="23" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="90" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="13" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="false" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="19" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.1 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="95" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="18" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="true" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="25" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+    <contains groups="//@representedBy/@containsFeatures.0 //@representedBy/@containsFeatures.0/@decomposesInto.0 //@representedBy/@containsFeatures.0/@decomposesInto.0/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.1 //@representedBy/@containsFeatures.0/@decomposesInto.1/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.2 //@representedBy/@containsFeatures.0/@decomposesInto.2/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.3 //@representedBy/@containsFeatures.0/@decomposesInto.3/@containsVariant/@contains.0 //@representedBy/@containsFeatures.0/@decomposesInto.4/@containsVariant/@contains.0">
+      <describedBy instantiationValue="116" ofAttributeType="//@has/@contains.0"/>
+      <describedBy instantiationValue="21" ofAttributeType="//@has/@contains.1"/>
+      <describedBy instantiationValue="false" ofAttributeType="//@has/@contains.2"/>
+      <describedBy instantiationValue="22" ofAttributeType="//@has/@contains.3"/>
+    </contains>
+  </enables>
+  <has>
+    <contains name="Cost" scaleOrder="LowerIsBetter" toBeEvaluated="true" description="The cost of a feature."/>
+    <contains name="Throughput" toBeEvaluated="true" description="The throughput of a feature."/>
+    <contains name="Sends mail" domain="Boolean" aggregationRule="AtLeastOnce" scaleOrder="ExistenceIsBetter" toBeEvaluated="true" description="" customAttributeTypePriority="5"/>
+    <contains name="Processing time" scaleOrder="LowerIsBetter" toBeEvaluated="true" description=""/>
+  </has>
+</servicefeaturemodel:Service>

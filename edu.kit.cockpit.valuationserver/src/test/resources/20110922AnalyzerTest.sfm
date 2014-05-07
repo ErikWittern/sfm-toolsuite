@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<servicefeaturemodel:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:servicefeaturemodel="http://servicefeaturemodel/1.0" id="32" name="20110922AnalyzerTest">
+  <serviceFeatureDiagram name="20110922AnalyzerTest" id="0f861055-88fb-4f8a-90a4-63222746c7e7">
+    <serviceFeatures xsi:type="servicefeaturemodel:OptionalServiceFeature" name="Feature1" id="b1c298cc-3be5-41d2-a12a-54ece5480b18">
+      <attributes instantiationValue="4" attributeType="//@attributeTypes/@attributeTypes.0" id="eb42a0b4-1034-49b7-97ef-89f10585a255"/>
+      <attributes instantiationValue="1" attributeType="//@attributeTypes/@attributeTypes.1" id="1682de88-f8e8-4693-837d-c12fb3d585cc"/>
+    </serviceFeatures>
+    <serviceFeatures xsi:type="servicefeaturemodel:MandatoryServiceFeature" name="Feature2" id="4d704145-1ce1-435e-95f5-ee16603b9a80">
+      <attributes instantiationValue="4" attributeType="//@attributeTypes/@attributeTypes.0" id="ed951ce7-319e-4580-8eba-80887cce340e"/>
+      <attributes instantiationValue="1" attributeType="//@attributeTypes/@attributeTypes.1" id="55ea3aa0-c53b-4875-b277-f72ec08c5b4b"/>
+    </serviceFeatures>
+  </serviceFeatureDiagram>
+  <configurations>
+    <configurations name="1" id="1" serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.1">
+      <attributes instantiationValue="4" attributeType="//@attributeTypes/@attributeTypes.0" id="69a56822-1da6-4256-879a-6f057ade5afb"/>
+      <attributes instantiationValue="1" attributeType="//@attributeTypes/@attributeTypes.1" id="b4058c42-6206-45e6-ae3b-f0eef08e9a8e"/>
+    </configurations>
+    <configurations name="2" id="2" serviceFeatures="//@serviceFeatureDiagram/@serviceFeatures.0 //@serviceFeatureDiagram/@serviceFeatures.1">
+      <attributes instantiationValue="8" attributeType="//@attributeTypes/@attributeTypes.0" id="86271bc5-4e1e-4eb0-bb84-188117406c41"/>
+      <attributes instantiationValue="1" attributeType="//@attributeTypes/@attributeTypes.1" id="1612451f-c0e5-4f6b-b671-90dc416e844a"/>
+    </configurations>
+  </configurations>
+  <attributeTypes>
+    <attributeTypes name="AttLowerBetter" scaleOrder="LowerIsBetter" toBeEvaluated="true"/>
+    <attributeTypes name="AttStandard" aggregationRule="Product" toBeEvaluated="true"/>
+  </attributeTypes>
+</servicefeaturemodel:Service>

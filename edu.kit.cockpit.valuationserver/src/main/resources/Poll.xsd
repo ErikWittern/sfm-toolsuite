@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.cockpit-project.eu"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.cockpit-project.eu">
+	<xs:element name="Poll" type="PollType" />
+	<xs:element name="ArrayOfPoll">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Poll" type="PollType" minOccurs="1"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PollType">
+		<xs:sequence>
+			<xs:element name="ServiceId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="PollId" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="EvaluationId" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="Visible" type="xs:boolean" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="EndDate" type="xs:dateTime" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="Title" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="Subtitle" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="Type" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Single Select" />
+						<xs:enumeration value="Multi Select" />
+						<xs:enumeration value="Aspect Comparison" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Options" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Option" type="xs:string" minOccurs="1"
+							maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Aspects" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Aspect" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute name="Feature1" type="xs:string" use="required" />
+								<xs:attribute name="Feature2" type="xs:string" use="required" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Other" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
