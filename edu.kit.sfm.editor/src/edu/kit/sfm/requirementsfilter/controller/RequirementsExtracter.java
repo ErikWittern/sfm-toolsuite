@@ -45,7 +45,7 @@ public class RequirementsExtracter {
 				reqList.add(new AttributeTypeRequirement(at.getName(), 
 						comp, 
 						Double.parseDouble(reqSplit[1]), 
-						1.0)); // TODO: Use real weight instead!!!
+						Double.parseDouble(at.getRequirementWeight())));
 			}
 		}
 		return reqList;
@@ -67,19 +67,19 @@ public class RequirementsExtracter {
 				ServiceFeature sf = (ServiceFeature) ob;
 				if (sf instanceof OptionalServiceFeature) {
 					if(sf.isRequired()){
-						reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), 1.0, FeatureTypes.INSTANCE_FEATURE)); // TODO: replace with actual value
+						reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), Double.parseDouble(sf.getRequirementWeight()), FeatureTypes.INSTANCE_FEATURE));
 					}
 				} else {
 					MandatoryServiceFeature msf = (MandatoryServiceFeature) sf;
 					switch (msf.getFeatureTypes()) {
 					case INSTANCE_FEATURE:
 						if(sf.isRequired()){
-							reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), 1.0, FeatureTypes.INSTANCE_FEATURE)); // TODO: replace with actual value
+							reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), Double.parseDouble(sf.getRequirementWeight()), FeatureTypes.INSTANCE_FEATURE));
 						}
 						break;
 					case ABSTRACT_FEATURE:
 						if(sf.isRequired()){
-							reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), 1.0, FeatureTypes.ABSTRACT_FEATURE)); // TODO: replace with actual value
+							reqList.add(new FeatureRequirement(sf.getId(), sf.getName(), Double.parseDouble(sf.getRequirementWeight()), FeatureTypes.ABSTRACT_FEATURE));
 						}
 						break;
 					case GROUPING_FEATURE:
