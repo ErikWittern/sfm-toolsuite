@@ -1,3 +1,5 @@
+Please note: I do no longer maintain this project and cannot ensure that it will work on your system / in your context.
+
 SFM tool suite
 ==============
 
